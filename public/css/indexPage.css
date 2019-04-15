@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+
+body {
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	background: #111111;
+	font-family: "Varela Round", sans-serif;
+	/*background: linear-gradient(to right, white, #3FB0AC);*/
+}
+
+*:focus {
+	outline: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.noselect {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none; 
+}
+
+#index-container {
+	position: relative;
+	top: 120px;
+}
+
+#index-container #index-logo{
+	width: 250px;
+	height: 80px;
+	cursor: pointer;
+}
+
+#index-container #subtitle {
+	color: white;
+	margin-top: 50px;
+	font-weight: bold;
+	font-size: 15px;
+}
+/*#index-container #subtitle {
+	color: white;
+	font-family: 'Pacifico', cursive, sans-serif;
+	font-size: 15px;
+	margin-top: -12px;
+}
+*/
+
+#index-container #index-button-container {
+	margin: auto;
+	margin-top: 0px;
+	width: 250px;
+	height: 250px;
+}
+
+#index-container #index-button-container .index-button {
+	margin: 10px;
+	border-radius: 25px;
+	width: 225px;
+	height: 35px;
+	text-align: center;
+	color: black;
+	cursor: pointer;
+	font-size: 15px;
+	font-weight: bold;
+	font-family: "Varela Round", sans-serif;
+}
+
+/*#index-container #index-button-container .button:hover; {
+	background: black;
+	border: 1px solid black;
+	color: white;
+	transition: 0.2s linear;
+}*/
+
+#index-container #index-button-container  #index-login-button{
+	background: none;
+	border: 1px solid #1190CB;
+	color: #1190CB;
+}
+
+#index-container #index-button-container  #index-try-button{
+	margin-top: 35px;
+	background: white;
+	color: black;
+	border: 1px solid white;
+	font-weight: bold;
+	font-size: 13.5px;
+}
+
+#index-container #index-button-container  #index-register-button{
+	background: #1190CB;
+	border: 2px solid #1190CB;
+	color: white;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 1024px) {
+	#index-container {
+		position: relative;
+		top: 110px;
+		height: 80%;
+		width: 100%;
+		margin-bottom: 0px;
+	}
+
+	#index-container #index-logo{
+		width: 700px;
+		height: 220px;
+	}
+
+	#index-container #subtitle {
+		color: white;
+		margin-top: 200px;
+		font-weight: bold;
+		font-size: 42px;
+	}
+
+	#index-container #index-button-container {
+		margin: auto;
+		margin-top: 0px;
+		width: 750px;
+		height: 500px;
+	}
+
+	#index-container #index-button-container .index-button {
+		margin-top: 45px;
+		border-radius: 60px;	
+		width: 725px;
+		height: 120px;
+		text-align: center;
+		font-size: 42px;
+	}
+
+	#index-container #index-button-container  #index-login-button{
+		background: none;
+		border: 3px solid #1190CB;
+	}
+
+	#index-container #index-button-container  #index-register-button{
+		background: #1190CB;
+		border: 3px solid #1190CB;
+	}
+
+	#index-container #index-button-container  #index-try-button{
+		margin-top: 150px;
+		border: 3px solid white;
+		font-size: 38px;
+	}
+}
+
+

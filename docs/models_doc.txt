@@ -1,0 +1,23 @@
+User: 
+	[
+		_id,
+		username,
+		email,
+		password,		
+		userID: Auto Generated,
+		answers: Array of Objs: {
+			id(Answer),
+			answer(by the user)
+		},	
+		questions: Array of IDs,
+		Token and other fields;
+	];
+
+Question: 
+	[
+		_id,
+		creatorID,
+		questionID: Auto Generated,
+		data: Question(String), (options, duration[for some later update]), Status(active or inactive),
+		values: total number of answers, number of yes, number of no, % of yes, % of no;
+	];

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ username }} | Wiscro</title>
+	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+	<link rel = "stylesheet" href = "../css/userPage.css" type = "text/css"/>
+	<link rel = "shortcut icon" href = "../images/logo.png" type = "image/png"/>
+</head>
+<body>
+	<div class = "page-container" id = "user-container">
+		<div class = "page-element user-navbar" id = "user-topbar">
+			<img id = "user-topbar-menu-btn" src = "../images/menu.png" type = "image/png"/>
+			<img id = "user-topbar-logo" src = "../images/wiscro.png" type = "image/png"/>
+		</div>
+		<div class = "page-element menu-overlay-inactive noselect" id = "user-menu-overlay">
+			<div class = "user-navbar" id = "user-menu-overlay-topbar">
+				<img id = "user-menu-overlay-topbar-menu-btn" src = "../images/menu_black.png" type = "image/png"/>
+				<img id = "user-menu-overlay-topbar-logo" src = "../images/wiscro_black.png" type = "image/png" height = "50px" width = "150px"/>
+				<p id = "menu-greeting">Hello, {{ username }}</p>
+				<ul id = "user-menu-overlay-nav-list">
+					<li class = "user-menu-overlay-nav-el" id = "menu-overlay-home-btn" data-btnName = "home">Home</li>
+					<li class = "user-menu-overlay-nav-el" id = "menu-overlay-myques-btn" data-btnName = "my-ques" data-fetchurl = "myques">My Questions</li>
+					<li class = "user-menu-overlay-nav-el" id = "menu-overlay-myans-btn" data-btnName ="my-ans" data-fetchurl = "myans">My Answers</li>
+					<a href = "/logout"><li class = "user-menu-overlay-nav-el" id = "menu-overlay-logout-btn" data-btnName = "logout">Log out</li></a>
+				</ul>
+			</div>
+		</div>
+		<div class = "page-element" id = "user-content-container">
+			<div data-pageName = "home" class = "user-page" id = "user-home-page">
+				<div data-pageName = "ans" class = "user-page-page" id = "user-main-ques-container">
+				</div>
+				<div data-pageName = "ask" class = "user-page-page inactive-page" id ="user-main-ask-container">
+					<form class = "data-form" id = "user-ask-form">
+						<textarea class = "data-form-input" id = "user-ask-form-textarea" placeholder = "Enter your question"></textarea>
+						<input id = "user-ask-form-submit-btn" type = "button" value = "Submit"/>
+					</form>
+				</div>
+			</div>
+			<div data-pageName = "my-ques" class = "user-page inactive-page" id ="user-myques-history-page">
+				<div class = "myques">
+					<div class = "myques-ques">
+						<p>Do you like football?</p>
+					</div>
+					<div class = "myques-ans">
+						<div class = "myques-ans-yes" id = "myques-ans-yes-1" style = "width: 75%; opacity: 1">Yes: 75%</div>
+						<div class = "myques-ans-no" id = "myques-ans-yes-2" style = "width: 25%; opacity: 0.3">No: 25%</div>
+					</div>
+				</div>
+				<div class = "myques">
+					<div class = "myques-ques">
+						<p>dsafjkasdfjalkdsjf lakdjflk;da jflk;ajf lk;adsjflak sdjfklajf ;kalsdjf kla;djfkald jfkldsjfakdslf hairlwfj wsdlkfjawkldf jadlskf adlkfjldkafj daklfj alkdfj daklfj ldksfjadlskfj akl;dsjfalk jflaksdjf asdlkfaksldfjakld fjadlkfj asldkfj alkdfjalk dsfjklasfj adkls fjadkslfj adf;lsdjlk fjadkf jasidklfja skldhfkl sdhfkahfkl asdfljadkfl ajsdkfaskdfa klsdjfaksdjfaskdljdfhslkdjfhaksjldfh adisfjkadsfhsdjk hfajkdsfh askjfhask ljfakdsjfh ajkdsfhajdsfhakjsdhf aklsdfh adklsfh aklsdfkad fhkdj</p>
+					</div>
+					<div class = "myques-ans">
+						<div class = "myques-ans-yes" id = "myques-ans-yes-1" style = "width: 15%; opacity: 0.3">Yes: 15%</div>
+						<div class = "myques-ans-no" id = "myques-ans-yes-2" style = "width: 85%; opacity: 1">No: 85%</div>
+					</div>
+				</div>
+			</div>
+			<div data-pageName = "my-ans" class ="user-page inactive-page" id = "user-myans-history-page">
+				<div class = "myans">
+					<div class = "myans-ques">
+						<p>Do you play video games?</p>
+					</div>
+					<div class = "myans-ans">
+						<div class = "myques-ans-yes" id = "myques-ans-yes-2" style = "width: 70%;
+						background-color: #1190CB; opacity: 1;">Yes: 70%</div>
+						<div class = "myques-ans-no" id = "myques-ans-no-2" style = "width: 30%; background-color: #111111; opacity: 0.5;">No: 30%</div>
+					</div>
+				</div>
+				<div class = "myans">
+					<div class = "myans-ques">
+						<p>Do you like picking out school supplies?</p>
+					</div>
+					<div class = "myans-ans">
+						<div class = "myques-ans-yes" id = "myques-ans-yes-2" style = "width: 20%;
+						background-color: #1190CB; opacity: 1;">Yes: 20%</div>
+						<div class = "myques-ans-no" id = "myques-ans-no-2" style = "width: 80%; background-color: #111111; opacity: 0.5;">No: 80%</div>
+					</div>
+				</div>
+				<div class = "myans">
+					<div class = "myans-ques">
+						<p>Are you outgoing? -like an outgoing, bubbly sort of person</p>
+					</div>
+					<div class = "myans-ans">
+						<div class = "myques-ans-yes" id = "myques-ans-yes-2" style = "width: 90%;
+						background-color: #111111; opacity: 0.5;">Yes: 90%</div>
+						<div class = "myques-ans-no" id = "myques-ans-no-2" style = "width: 10%; background-color: #1190CB; opacity: 1;">No: 10%</div>
+					</div>
+				</div>
+				<div class = "myans">
+					<div class = "myans-ques">
+						<p>dsafjkasdfjalkdsjf lakdjflk;da jflk;ajf lk;adsjflak sdjfklajf ;kalsdjf kla;djfkald jfkldsjfakdslf hairlwfj wsdlkfjawkldf jadlskf adlkfjldkafj daklfj alkdfj daklfj ldksfjadlskfj akl;dsjfalk jflaksdjf asdlkfaksldfjakld fjadlkfj asldkfj alkdfjalk dsfjklasfj adkls fjadkslfj adf;lsdjlk fjadkf jasidklfja skldhfkl sdhfkahfkl asdfljadkfl ajsdkfaskdfa klsdjfaksdjfaskdljdfhslkdjfhaksjldfh adisfjkadsfhsdjk hfajkdsfh askjfhask ljfakdsjfh ajkdsfhajdsfhakjsdhf aklsdfh adklsfh aklsdfkad fhkdj</p>
+					</div>
+					<div class = "myans-ans">
+						<div class = "myques-ans-yes" id = "myques-ans-yes-2" style = "width: 40%;
+						background-color: #111111; opacity: 0.5;">Yes: 40%</div>
+						<div class = "myques-ans-no" id = "myques-ans-no-2" style = "width: 60%; background-color: #1190CB; opacity: 1;">No: 60%</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class = "page-element user-navbar" id = "user-bottombar">
+			<input data-btnName = "ans" type = "button" class = "home-page-button active-home-page-button" id = "user-bottombar-ans-button" value = "answer"/>
+			<input data-btnName = "ask" type = "button" class = "home-page-button" id = "user-bottombar-ask-button" value = "ask"/>
+		</div>
+	</div>
+
+	<script src = "../js/jquery.js"></script>
+	<script src = "../js/userPage.js"></script>
+</body>
+</html>
+
+<!-- 
+	<button id = "remove-btn">X</button>
+	<img src = "../images/wiscro_k.png" height = "50px" width = "150px"/> -->
+<!--
+	<div class = "user-question">
+		<div class = "user-question-div user-question-ans user-question-yes"><p>Yes</p></div>
+		<div class = "user-question-div user-question-ques"><p>Do you like football?</p></div>
+		<div class = "user-question-div user-question-ans user-question-no"><p>No</p></div>
+	</div>
+	<div class = "user-question">
+		<div class = "user-question-div user-question-ans user-question-yes"><p>Yes</p></div>
+		<div class = "user-question-div user-question-ques"><p>Do you play video games?</p></div>
+		<div class = "user-question-div user-question-ans user-question-no"><p>No</p></div>
+	</div>
+	<div class = "user-question">
+		<div class = "user-question-div user-question-ans user-question-yes"><p>Yes</p></div>
+		<div class = "user-question-div user-question-ques"><p>Do you watch disney channel shows?</p></div>
+		<div class = "user-question-div user-question-ans user-question-no"><p>No</p></div>
+	</div>
+	<div class = "user-question">
+		<div class = "user-question-div user-question-ans user-question-yes"><p>Yes</p></div>
+		<div class = "user-question-div user-question-ques"><p>dsafjkasdfjalkdsjf lakdjflk;da jflk;ajf lk;adsjflak sdjfklajf ;kalsdjf kla;djfkald jfkldsjfakdslf hairlwfj wsdlkfjawkldf jadlskf adlkfjldkafj daklfj alkdfj daklfj ldksfjadlskfj akl;dsjfalk jflaksdjf asdlkfaksldfjakld fjadlkfj asldkfj alkdfjalk dsfjklasfj adkls fjadkslfj adf;lsdjlk fjadkf jasidklfja skldhfkl sdhfkahfkl asdfljadkfl ajsdkfaskdfa klsdjfaksdjfaskdljdfhslkdjfhaksjldfh adisfjkadsfhsdjk hfajkdsfh askjfhask ljfakdsjfh ajkdsfhajdsfhakjsdhf aklsdfh adklsfh aklsdfkad fhkdj</p></div>
+		<div class = "user-question-div user-question-ans user-question-no"><p>No</p></div>
+	</div>
+	<div class = "user-question">
+		<div class = "user-question-div user-question-ans user-question-yes"><p>Yes</p></div>
+		<div class = "user-question-div user-question-ques"><p>Do you like picking out school supplies?</p></div>
+		<div class = "user-question-div user-question-ans user-question-no"><p>No</p></div>
+	</div>
+	<div class = "user-question">
+		<div class = "user-question-div user-question-ans user-question-yes"><p>Yes</p></div>
+		<div class = "user-question-div user-question-ques"><p> Are you outgoing? -like an outgoing, bubbly sort of person</p></div>
+		<div class = "user-question-div user-question-ans user-question-no"><p>No</p></div>
+	</div>
+-->

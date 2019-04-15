@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+
+body {
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	background: #111111;
+	font-family: "Varela Round", sans-serif;
+	/*background: linear-gradient(to right, white, #3FB0AC);*/
+}
+
+*:focus {
+	outline: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+#register-container {
+	position: relative;
+	top: 120px;
+}
+
+#register-container #register-logo{
+	width: 250px;
+	height: 80px;
+}
+
+#register-form-title {
+	font-weight: bold;
+	font-size: 15px;
+	color: white;
+	margin: 0px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+#register-form {
+	margin: auto;
+	margin-top: 0px;
+	width: 250px;
+	height: 350px;
+}
+
+.form-input {
+	margin: 10px;
+	border: none;
+	border-bottom: 1px solid #1190CB; 
+	/*border-radius: 25px;*/
+	background: none;	
+	width: 225px;
+	height: 35px;
+	/*text-align: center;*/
+	color: white;
+	font-family: "Varela Round", sans-serif;
+	font-size: 13.5px;
+	/*font-weight: bold;*/
+}
+
+.form-input::placeholder {
+	font-family: "Varela Round", sans-serif;
+	font-size: 13.5px;
+	color: white;
+	font-weight: bold;
+}
+
+/*.form-input:hover {
+	background: rgba(255,255,255,0.2);
+	transition: 0.1s linear;
+}*/
+
+/*.form-input:focus {
+	background: rgba(255,255,255,0.2);
+	transition: 0.1s linear;
+}*/
+
+#register-input-button {
+	margin: 10px;
+	height: 35px;
+	width: 225px;
+	background: #1190CB;
+	color: black;
+	border: 2px solid #1190CB;
+	border-radius: 25px; 
+	font-family: "Varela Round", sans-serif;
+	font-weight: bold;
+	font-size: 13.5px;
+	color: white;
+	cursor: pointer;
+}
+
+/*#register-input-button:hover {
+	transition: 0.1s linear;
+	background: #4DCCC4;
+	color: white;
+}
+
+#register-input-button:focus {
+	background: white;
+	color: black;
+	transition: 0.1s linear;
+}*/
+
+#register-login-button {
+	margin-top: 50px;
+	height: 35px;
+	width: 225px;
+	background: white;
+	color: black;
+	border: 1px solid white;
+	border-radius: 25px; 
+	font-family: "Varela Round", sans-serif;
+	font-weight: bold;
+	font-size: 13.5px;
+	cursor: pointer;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 1024px) {
+	#register-container {
+		position: relative;
+		top: 110px;
+		height: 80%;
+		width: 100%;
+	}
+
+	#register-container #register-logo{
+		width: 700px;
+		height: 220px;
+	}
+
+	#register-form-title {
+		font-weight: bold;
+		font-size: 42px;
+		color: white;
+		margin: 0px;
+		margin-top: 100px;
+		margin-bottom: 10px;
+	}
+
+	#register-form {
+		margin: auto;
+		margin-top: 25px;
+		width: 750px;
+		height: 750px;
+	}
+
+	.form-input {
+		margin: 20px;
+		border: none;
+		border-bottom: 3px solid #1190CB;
+		/*border-radius: 60px;*/
+		background: none;	
+		width: 725px;
+		height: 120px;
+		/*text-align: center;*/
+		color: white;
+		font-family: "Varela Round", sans-serif;
+		font-size: 38px;
+		/*font-weight: bold;*/
+	}
+
+	.form-input::placeholder {
+		font-family: "Varela Round", sans-serif;
+		line-height: 70px;
+		font-size: 38px;
+		font-weight: bold;
+		color: white;
+	}
+
+	#register-input-button {
+		margin: 20px;
+		background: #1190CB;
+		height: 120px;
+		width: 725px;
+		border: 3px solid #1190CB;
+		border-radius: 60px; 
+		font-size: 38px;
+		color: white;
+	}
+
+	/*#register-input-button:hover {
+		transition: 0.1s linear;
+		background: #4DCCC4;
+		color: white;
+		border: 3px solid #4DCCC4;
+	}
+
+	#register-input-button:focus {
+		transition: 0.1s linear;
+		background: #4DCCC4;
+		color: white;
+		border: 3px solid #4DCCC4;
+	}*/
+
+	#register-login-button {
+		margin-top: 90px;
+		height: 120px;
+		width: 725px;
+		border: 3px solid white;
+		border-radius: 60px; 
+		font-size: 38px;
+	}
+}
