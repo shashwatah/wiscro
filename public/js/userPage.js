@@ -109,7 +109,7 @@ $.ajax({
 				url: '',
 				method: 'POST',
 				data: {
-					questionID = curYesBtn.parentNode.getAttribute('data-questionID');
+					questionID = curYesBtn.parentNode.getAttribute('data-questionID'),
 					answer = "YES"
 				}
 			}).done(function(data) {
