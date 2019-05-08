@@ -64,6 +64,7 @@ function btnHoverAnimation(btnChild, transformVal, fontSizeVal) {
   }
 }
 
+////////////////////////////////////Ajax Request////////////////////////////////////
 $.ajax({
   url: "/feedques",
   method: "GET"
@@ -117,18 +118,18 @@ $.ajax({
     });
     //Event Listener for click on each Yes button
     curYesBtn.addEventListener("click", function(event) {
-      /////////////////////////////////Complete this!!!!/////////////////////////////////
-      // $.ajax({
-      // 	url: '',
-      // 	method: 'POST',
-      // 	data: {
-      // 		questionID = curYesBtn.parentNode.getAttribute('data-questionID'),
-      // 		answer = "YES"
-      // 	}
-      // }).done(function(data) {
-      // 	console.log(data);
-      // });
-      /////////////////////////////////Complete this!!!!/////////////////////////////////
+      ////////////////////////////////////Ajax Request////////////////////////////////////
+      $.ajax({
+        url: "/submitans",
+        method: "POST",
+        data: {
+          questionID: curYesBtn.parentNode.getAttribute("data-questionID"),
+          answer: "YES"
+        }
+      }).done(function(data) {
+        console.log(data);
+      });
+      ////////////////////////////////////Ajax Request////////////////////////////////////
 
       //Removing every element from the question div that is not the Yes button that was clicked
       curYesBtn.parentNode.childNodes.forEach(function(curNode) {
@@ -183,6 +184,19 @@ $.ajax({
     });
     //Event Listener for click on each No button
     curNoBtn.addEventListener("click", function(event) {
+      ////////////////////////////////////Ajax Request////////////////////////////////////
+      $.ajax({
+        url: "/submitans",
+        method: "POST",
+        data: {
+          questionID: curNoBtn.parentNode.getAttribute("data-questionID"),
+          answer: "NO"
+        }
+      }).done(function(data) {
+        console.log(data);
+      });
+      ////////////////////////////////////Ajax Request////////////////////////////////////
+
       /*Adding a flexDirection of row-reverse because a No button is on the right side of the 
 			question div and it needs to expand the right way(towards left) on being clicked*/
       curNoBtn.parentNode.style.flexDirection = "row-reverse";
@@ -264,6 +278,7 @@ menuOverlayBtns.forEach(function(curMenuOvlBtn) {
       /*Fetching data from the server for every page depending upon the data attribute 
 			fetchurl*/
       if (curMenuOvlBtn.getAttribute("data-fetchurl") === "myques") {
+        ////////////////////////////////////Ajax Request////////////////////////////////////
         $.ajax({
           url: "/myques",
           method: "GET",
@@ -271,13 +286,16 @@ menuOverlayBtns.forEach(function(curMenuOvlBtn) {
         }).done(function(data) {
           console.log(data);
         });
+        ////////////////////////////////////Ajax Request////////////////////////////////////
       } else if (curMenuOvlBtn.getAttribute("data-fetchurl") === "myans") {
+        ////////////////////////////////////Ajax Request////////////////////////////////////
         $.ajax({
           url: "/myans",
           method: "GET"
         }).done(function(data) {
           console.log(`myans request sent, data: ${data}`);
         });
+        ////////////////////////////////////Ajax Request////////////////////////////////////
       }
       //Closing the overlay menu
       toggleMenuOverlay();
@@ -306,6 +324,7 @@ menuOverlayBtns.forEach(function(curMenuOvlBtn) {
 });
 
 askSubmitBtn.addEventListener("click", function(event) {
+  ////////////////////////////////////Ajax Request////////////////////////////////////
   $.ajax({
     url: "/submitques",
     method: "POST",
@@ -317,4 +336,6 @@ askSubmitBtn.addEventListener("click", function(event) {
     askTextarea.value = "";
     alert(data);
   });
+  ////////////////////////////////////Ajax Request////////////////////////////////////
 });
+////////////////////////////////////Ajax Request////////////////////////////////////
