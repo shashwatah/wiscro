@@ -1,15 +1,15 @@
 To-Do:
 [✓] 1. Write ajax call for no buttons
-[] 2. Refactor code in userPage.js
+[Almost Done] 2. Refactor code in userPage.js
 [] 3. Refactor code in authRoute.js, quesGetRoute.js, quesPostRoute.js
-[] 4. Check if when an answer is submited and perYes and perNo are calculated the new ans is acknowledged or not
-[] 5. Modulate the frontend js and css code after refactoring
-[] 6. Write Endpoints and ajax calls for 'My Questions' and 'My Answers'
-
+[Started working on it] 4. Modulate the frontend js and css code after refactoring
+[Almost Done] 5. Write Endpoints and ajax calls for 'My Questions' and 'My Answers'
+[] 6. Change comments in refactored code and add new comments in new code
 
 Problems: 
-[] 1. Need to check the time for which the question has bee 'active' to change the 'status' to 'inactive' if required.
-[] 2. What if two people submit an answer for the same question at the same time.
+[✓] 1. Check if when an answer is submited and perYes and perNo are calculated the new ans is acknowledged or not
+[] 2. Need to check the time for which the question has bee 'active' to change the 'status' to 'inactive' if required.
+[] 3. What if two people submit an answer for the same question at the same time.
 
 
 For To-Do item 2: In userPage.hbs change the classnames 'user-question-yes' and 'user-question-no' or add a new 
