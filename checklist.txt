@@ -1,10 +1,11 @@
 To-Do:
 [✓] 1. Write ajax call for no buttons
 [✓] 2. Refactor code in userPage.js 
-[] 3. Refactor code in authRoute.js, quesGetRoute.js, quesPostRoute.js - check the data and error that are being sent as the reponse to requests
-    [] 1. authRoute.js 
-    [] 2. quesGetRoute.js
-    [] 3. quesPostRoute.js
+[] 3. Refactor code in authRoute.js, getRoute.js, postRoute.js - check the data and error that are being sent as the reponse to requests
+    [✓] 1. authRoute.js 
+        *Need to fix a few things with findOne code
+    [] 2. getRoute.js
+    [] 3. postRoute.js
 [✓] 4. Modulate the frontend js after refactoring
     *Except guesPage.js - see 8 and 9
 [] 5. Change comments in refactored code and add new comments in new code
