@@ -1,17 +1,26 @@
 To-Do:
 [✓] 1. Write ajax call for no buttons
-[Almost Done] 2. Refactor code in userPage.js
-[] 3. Refactor code in authRoute.js, quesGetRoute.js, quesPostRoute.js
-[Started working on it] 4. Modulate the frontend js and css code after refactoring
-[Almost Done] 5. Write Endpoints and ajax calls for 'My Questions' and 'My Answers'
-[] 6. Change comments in refactored code and add new comments in new code
+[✓] 2. Refactor code in userPage.js 
+[] 3. Refactor code in authRoute.js, quesGetRoute.js, quesPostRoute.js - check the data and error that are being sent as the reponse to requests
+    [] 1. authRoute.js 
+    [] 2. quesGetRoute.js
+    [] 3. quesPostRoute.js
+[✓] 4. Modulate the frontend js after refactoring
+    *Except guesPage.js - see 8 and 9
+[] 5. Change comments in refactored code and add new comments in new code
+[] 6. Solve Problem 2
+[] 7. Write Endpoints and ajax calls for 'My Questions' and 'My Answers'
+[] 8. Refactor code from line 62 to 121 in public/js/userPage/main.js and anything below line 127 if possible
+[] 9. Complete guesPage.js - Write endpoints and frontend code with ajax calls
+[] 10. Refactor and Modulate code in guestPage.js based on /userPage 
+[] 11. Complete the frontend code on every page - modals, dialog boxes, and finishing touches
 
 Problems: 
 [✓] 1. Check if when an answer is submited and perYes and perNo are calculated the new ans is acknowledged or not
-[] 2. Need to check the time for which the question has bee 'active' to change the 'status' to 'inactive' if required.
+[] 2. Need to check the time for which every question has been 'active' at regular intervals to change the 'status' to 'inactive' if required.
 [] 3. What if two people submit an answer for the same question at the same time.
 
 
-For To-Do item 2: In userPage.hbs change the classnames 'user-question-yes' and 'user-question-no' or add a new 
+[✓]For To-Do item 2: In userPage.hbs change the classnames 'user-question-yes' and 'user-question-no' or add a new 
 classname 'user-auestion-ans-button' to all the buttons then create an array of all the buttons, the specifics 
 that differentiate the yes and no buttons can be stored in data attributes.

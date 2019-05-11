@@ -13,7 +13,6 @@ $.ajax({
     }</p></div><div class = "user-question-div user-question-ans user-question-no" data-anstype = "NO"><p>No</p></div></div>`;
   });
 
-  ///////////////////////////////////////Refactored code/////////////////////////////////////////
   const ansBtns = Array.from(
     document.getElementsByClassName("user-question-ans")
   );
@@ -28,7 +27,7 @@ $.ajax({
     const curAnsBtnChildren = curAnsBtn.childNodes;
     curAnsBtn.addEventListener("mouseover", function(event) {
       curAnsBtnChildren.forEach(function(curChild) {
-        functions.btnHoverAnimation(
+        uiChange.btnHoverAnimation(
           curChild,
           values.mouseOverRotate,
           values.mouseOverSize
@@ -38,7 +37,7 @@ $.ajax({
     curAnsBtn.addEventListener("mouseout", function(event) {
       curAnsBtnChildren.forEach(function(curChild) {
         if (curAnsBtn.style.width !== "100%") {
-          functions.btnHoverAnimation(
+          uiChange.btnHoverAnimation(
             curChild,
             values.mouseOutRotate,
             values.mouseOutSize
@@ -122,7 +121,6 @@ $.ajax({
       }
     });
   });
-  ///////////////////////////////////////Refactored code/////////////////////////////////////////
 });
 ////////////////////////////////////Ajax Request////////////////////////////////////
 
@@ -156,11 +154,11 @@ pageBtnArray.forEach(function(curBtn) {
 
 //Adding the Event Listeners to the buttons(menuBtn, closeMenuBtn) that toggle the overlay menu
 menuBtn.addEventListener("click", function(event) {
-  functions.toggleMenuOverlay();
+  uiChange.toggleMenuOverlay();
 });
 
 closeMenuBtn.addEventListener("click", function(event) {
-  functions.toggleMenuOverlay();
+  uiChange.toggleMenuOverlay();
 });
 
 //forEach method for every button in the overlay menu
@@ -192,7 +190,7 @@ menuOverlayBtns.forEach(function(curMenuOvlBtn) {
         ////////////////////////////////////Ajax Request////////////////////////////////////
       }
       //Closing the overlay menu
-      functions.toggleMenuOverlay();
+      uiChange.toggleMenuOverlay();
       //forEach method for every page
       pageArray.forEach(function(curPage) {
         //Switching to the page if the data attributes match (pageName === btnName)
@@ -209,9 +207,9 @@ menuOverlayBtns.forEach(function(curMenuOvlBtn) {
       /*The bottom bar is not visible if the current page is not home page(any of the sub 
 			pages of the home page - the answer or the ask page)*/
       if (curMenuOvlBtn.getAttribute("data-btnName") !== "home") {
-        functions.toggleBottomBar("none");
+        uiChange.toggleBottomBar("none");
       } else {
-        functions.toggleBottomBar("block");
+        uiChange.toggleBottomBar("block");
       }
     });
   }

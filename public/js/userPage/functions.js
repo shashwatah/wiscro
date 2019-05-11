@@ -1,4 +1,4 @@
-const functions = {
+const uiChange = {
   //Function to toggle the overlay menu on button click
   toggleMenuOverlay: function() {
     //toggles the menu-overlay-inactive which changes the 'visibility' and 'opacity' styles
