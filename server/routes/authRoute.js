@@ -47,47 +47,27 @@ function inputValidation(email, pass) {
 
 //register endpoint
 router.post("/register", sessionChecker, (req, res) => {
-  //Trimming the input
   const email = req.body.email.trim();
   const password = req.body.password.trim();
   const username = req.body.username.trim();
 
-  //No need to validate the username as of now
-  //Looking for the username in the database
   User.findOne({
     username: username
-  })
-    .then(user => {
-      //If a user is found then the username is already being used but if the user object is null then the username is not being used
-      if (user === null) {
-        throw new Error("User object is null");
-      } else console.log(user);
-    })
-    .catch(err => {
-      //If an error is thrown then username is not being used
-      //Continue the registration process
-
-      //Validating the email and password input now
+  }).then(user => {
+    if (user === null) {
       const error = inputValidation(email, password);
-      //The length of error variable will be more than 0 if there are problems with the input
       if (error.length > 0) {
-        //Error message will be sent
-        //This will be changed later on along with some UI improvements(message modals)
         res
           .status(400)
           .send(`There were errors in the form submitted:- ${error}`);
       } else {
-        //If there's no error
-        //Creating a userID with the uuid module
         let userID = "user-" + uuid();
-        //Creating the user
         let user = new User({
           username: username,
           email: email,
           password: password,
           userID: userID
         });
-        //Saving to the database
         user
           .save()
           .then(user => {
@@ -96,50 +76,36 @@ router.post("/register", sessionChecker, (req, res) => {
             res.redirect("/user");
           })
           .catch(error => {
-            //Error message is sent if there is an error thrown
-            res.status(200).send(error + "   Error with Registering"); //Need to do something about this error
+            res.status(500).send(error + "   Error with Registering");
           });
       }
-    });
+    } else {
+      res.status(400).send("Username is in use already.");
+    }
+  });
 });
 
 //login endpoint
 router.post("/login", (req, res) => {
-  //Trimming the input
   const email = req.body.email.trim();
   const password = req.body.password.trim();
-  //Validating the input
   const error = inputValidation(email, password);
-  //The length of error variable will be more than 0 if there are problems with the input
   if (error.length > 0) {
-    //Error message will be sent
-    //This will be changed later on along with some UI improvements(message modals)
     res.status(400).send(`There were errors in the form submitted:- ${error}`);
   } else {
-    //If there's no error
-    //Finding the user based on the email input
     User.findOne({
       email: email
     }).then(user => {
-      if (!user) {
-        //If no user is found then error message is sent
-        //This will be changed later on along with some UI improvements(message modals)
-        res.status(400).send("User not found"); //Need to do something about this error
+      if (user === null) {
+        res.status(400).send("User not found");
       } else {
-        //If the user is found
-        //Comparing the password with the hashed password using the bcrypt module
         bcrypt.compare(password, user.password, (err, resolve) => {
           if (resolve) {
-            //If the password match is successful
-            //Creating session variables user and acctype
             req.session.user = user;
             req.session.accType = "verified";
-            //Redirecting to /user endpoint with the session variables
             res.redirect("/user");
           } else {
-            //If password does not match then error message is sent
-            //This will be changes later on along with some UI improvements(message modals)
-            res.send("Wrong Password!"); //Need to do something about this error
+            res.status(400).send("Wrong Password!");
           }
         });
       }
@@ -167,3 +133,17 @@ router.get("/logout", (req, res) => {
 module.exports = {
   router
 };
+
+/*
+if (!user) {
+  //If no user is found then error message is sent
+  //This will be changed later on along with some UI improvements(message modals)
+  res.status(400).send("User not found"); //Need to do something about this error
+} else {
+  Line 127 to 140
+}
+*/
+
+// .catch(err => {
+//   res.status(400).send("User not found");
+// });
