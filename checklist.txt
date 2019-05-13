@@ -3,8 +3,9 @@ To-Do:
 [✓] 2. Refactor code in userPage.js 
 [] 3. Refactor code in authRoute.js, getRoute.js, postRoute.js - check the data and error that are being sent as the reponse to requests
     [✓] 1. authRoute.js 
-        *Need to fix a few things with findOne code
-    [] 2. getRoute.js
+        *Need to fix a few things with findOne code [✓]
+    [✓] 2. getRoute.js
+        *Except /myques and /myans - See item 7
     [] 3. postRoute.js
 [✓] 4. Modulate the frontend js after refactoring
     *Except guesPage.js - see 8 and 9
@@ -16,6 +17,7 @@ To-Do:
 [] 10. Refactor and Modulate code in guestPage.js based on /userPage 
 [] 11. Change the backend code for modals and errors(sending errors in ressponse), Complete the frontend code on every page - modals, dialog boxes, and finishing touches
     *Check the status code of the responses and change them if necessary
+    *Change error messages sent in responses
 [] 12. Refactor code one last time
 
 Problems: 
@@ -28,3 +30,6 @@ Problems:
 [✓]For To-Do item 2: In userPage.hbs change the classnames 'user-question-yes' and 'user-question-no' or add a new 
 classname 'user-auestion-ans-button' to all the buttons then create an array of all the buttons, the specifics 
 that differentiate the yes and no buttons can be stored in data attributes.
+[X]For To-Do item 3 Sub-item 2: Tried using every() method on userAnswers list in the /feedques endpoint to form
+the finalQuestions list but every() method test whether every element in an array passes the test in the function 
+but filter requires a flag(boolean) to be returned for each element in the array

@@ -13,8 +13,6 @@ const { Question } = require("./../models/question.js");
 
 //feedques endpoint
 router.get("/feedques", (req, res) => {
-  //Checking if the session variable user and cookie exist
-  //If they do then the user is logged in
   if (req.session.user && req.cookies.user_sid) {
     Question.find(
       {
@@ -24,33 +22,32 @@ router.get("/feedques", (req, res) => {
         }
       },
       (err, allQuestions) => {
-        let answerList;
-        let returnList = new Array();
+        let userAnswers;
+        let finalQuestions;
         User.findOne({
           email: req.session.user.email
         })
           .then(async user => {
-            answerList = user.answers;
-            returnList = await allQuestions.filter(current => {
-              let check = true;
+            userAnswers = user.answers;
+            finalQuestions = await allQuestions.filter(current => {
+              let flag = true;
               //Try using every() method
-              answerList.forEach(cur => {
+              userAnswers.forEach(cur => {
                 if (cur.questionID === current.questionID) {
-                  check = false;
+                  flag = false;
                 }
               });
-              return check;
+              return flag;
             });
-            res.status(200).send(returnList);
+            res.status(200).send(finalQuestions);
           })
           .catch(err => {
-            res.status(500).send("Error");
+            res.status(500).send("Error feeding questions");
           });
       }
     );
   } else {
-    //If not send a Forbidden message with status code 400
-    res.status(400).send("Forbidden");
+    res.status(400).send("Forbidden. Unauthorized access to /feedques");
   }
 });
 

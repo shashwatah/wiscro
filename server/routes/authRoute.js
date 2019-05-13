@@ -125,7 +125,7 @@ router.get("/logout", (req, res) => {
     //If the session variable user and cookie don't exist
     //Send an error
     //This will be changed later on along with some UI improvements(message modals)
-    res.send("Error with logout"); //Need to do something about this error
+    res.status(500).send("Error with logout"); //Need to do something about this error
   }
 });
 

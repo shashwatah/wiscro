@@ -3,7 +3,6 @@ $.ajax({
   url: "/feedques",
   method: "GET"
 }).done(function(data) {
-  console.log(ansPage);
   data.forEach(function(current) {
     console.log(current);
     ansPage.innerHTML += `<div class = "user-question" data-questionID = "${
@@ -227,6 +226,7 @@ askSubmitBtn.addEventListener("click", function(event) {
   }).done(function(data) {
     askTextarea.value = "";
     alert(data);
+    console.log(data);
   });
   ////////////////////////////////////Ajax Request////////////////////////////////////
 });

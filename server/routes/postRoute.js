@@ -64,6 +64,8 @@ router.post("/submitans", (req, res) => {
         ques.perNo = Math.round((ques.numNo / ques.totalNumAns) * 100);
 
         ques.save();
+
+        res.status(200).send(`Answer Submitted, Your Answer = ${answer}`);
       });
     } else if (answer === "NO") {
       Question.findOne({
@@ -75,6 +77,8 @@ router.post("/submitans", (req, res) => {
         ques.perNo = Math.round((ques.numNo / ques.totalNumAns) * 100);
 
         ques.save();
+
+        res.status(200).send(`Answer Submitted, Your Answer = ${answer}`);
       });
     } else {
       res.status(400).send("Wrong answer");
