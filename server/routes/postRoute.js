@@ -41,11 +41,11 @@ router.post("/submitques", (req, res) => {
         res.send(`Question Submitted. Time: ${question.timeCreated}`);
       })
       .catch(err => {
-        res.send("Error: " + err);
+        res.send("Error with submitting questions" + err);
       });
   } else {
     //If the variable and cookie don't exist
-    res.status(400).send("Forbidden");
+    res.status(400).send("Forbidden. Unauthorized access to /submitques.");
   }
 });
 
@@ -54,47 +54,34 @@ router.post("/submitans", (req, res) => {
     qID = req.body.questionID;
     answer = req.body.answer;
 
-    if (answer === "YES") {
-      Question.findOne({
-        questionID: qID
-      }).then(ques => {
-        ques.totalNumAns += 1;
+    Question.findOne({
+      questionID: qID
+    }).then(ques => {
+      if (answer === "YES") {
         ques.numYes += 1;
-        ques.perYes = Math.round((ques.numYes / ques.totalNumAns) * 100);
-        ques.perNo = Math.round((ques.numNo / ques.totalNumAns) * 100);
-
-        ques.save();
-
-        res.status(200).send(`Answer Submitted, Your Answer = ${answer}`);
-      });
-    } else if (answer === "NO") {
-      Question.findOne({
-        questionID: qID
-      }).then(ques => {
-        ques.totalNumAns += 1;
+      } else if (answer === "NO") {
         ques.numNo += 1;
-        ques.perYes = Math.round((ques.numYes / ques.totalNumAns) * 100);
-        ques.perNo = Math.round((ques.numNo / ques.totalNumAns) * 100);
+      }
+      ques.totalNumAns += 1;
+      ques.perYes = Math.round((ques.numYes / ques.totalNumAns) * 100);
+      ques.perNo = Math.round((ques.numNo / ques.totalNumAns) * 100);
 
-        ques.save();
+      ques.save();
 
-        res.status(200).send(`Answer Submitted, Your Answer = ${answer}`);
+      User.findOne({
+        _id: req.session.user._id
+      }).then(user => {
+        user.answers.push({
+          questionID: qID,
+          answer: answer
+        });
+        user.save();
       });
-    } else {
-      res.status(400).send("Wrong answer");
-    }
 
-    User.findOne({
-      _id: req.session.user._id
-    }).then(user => {
-      user.answers.push({
-        questionID: qID,
-        answer: answer
-      });
-      user.save();
+      res.status(200).send(`Answer Submitted, Your Answer = ${answer}`);
     });
   } else {
-    res.status(400).send("Unauthorized");
+    res.status(400).send("Forbidden. Unauthorized access to /submitans");
   }
 });
 

@@ -1,12 +1,12 @@
 To-Do:
 [✓] 1. Write ajax call for no buttons
 [✓] 2. Refactor code in userPage.js 
-[] 3. Refactor code in authRoute.js, getRoute.js, postRoute.js - check the data and error that are being sent as the reponse to requests
+[✓] 3. Refactor code in authRoute.js, getRoute.js, postRoute.js - check the data and error that are being sent as the reponse to requests
     [✓] 1. authRoute.js 
         *Need to fix a few things with findOne code [✓]
     [✓] 2. getRoute.js
         *Except /myques and /myans - See item 7
-    [] 3. postRoute.js
+    [✓] 3. postRoute.js
 [✓] 4. Modulate the frontend js after refactoring
     *Except guesPage.js - see 8 and 9
 [] 5. Change/Add comments in refactored code
@@ -15,10 +15,14 @@ To-Do:
 [] 8. Refactor code from line 62 to 121 in public/js/userPage/main.js and anything below line 127 if possible
 [] 9. Complete guesPage.js - Write endpoints and frontend code with ajax calls
 [] 10. Refactor and Modulate code in guestPage.js based on /userPage 
-[] 11. Change the backend code for modals and errors(sending errors in ressponse), Complete the frontend code on every page - modals, dialog boxes, and finishing touches
+[] 11. Add code on the frontend to handle errors returned in ajax calls
+[] 12. Change the backend code for modals and errors(sending errors in ressponse), Complete the frontend code on every page - modals, dialog boxes, and finishing touches
     *Check the status code of the responses and change them if necessary
     *Change error messages sent in responses
-[] 12. Refactor code one last time
+[] 13. Try using async await on the backend and userPage.js 
+[] 15. Add error handling in the backend
+[] 14. Refactor code one last time
+
 
 Problems: 
 [✓] 1. Check if when an answer is submited and perYes and perNo are calculated the new ans is acknowledged or not
