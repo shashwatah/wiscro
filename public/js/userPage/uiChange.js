@@ -1,3 +1,4 @@
+//Functions to change UI elements on certain events being triggered
 const uiChange = {
   //Function to toggle the overlay menu on button click
   toggleMenuOverlay: function() {

@@ -51,6 +51,7 @@ router.post("/register", sessionChecker, (req, res) => {
   const password = req.body.password.trim();
   const username = req.body.username.trim();
 
+  //Checking if the username is already in use by finding a user in the database using the username as the parameter
   User.findOne({
     username: username
   }).then(user => {
@@ -61,7 +62,9 @@ router.post("/register", sessionChecker, (req, res) => {
           .status(400)
           .send(`There were errors in the form submitted:- ${error}`);
       } else {
+        //Forming a secondary ID for the user using the uuid module
         let userID = "user-" + uuid();
+        //Creating the user object based on the User schema
         let user = new User({
           username: username,
           email: email,
@@ -71,6 +74,8 @@ router.post("/register", sessionChecker, (req, res) => {
         user
           .save()
           .then(user => {
+            //Upon saving creating a session for the user and redirecting to /user endpoint
+            //A registered user is given 'verified' accType and a guest is given 'anon' accType
             req.session.user = user;
             req.session.accType = "verified";
             res.redirect("/user");
@@ -93,14 +98,18 @@ router.post("/login", (req, res) => {
   if (error.length > 0) {
     res.status(400).send(`There were errors in the form submitted:- ${error}`);
   } else {
+    //Finding the user with email as the parameter
     User.findOne({
       email: email
     }).then(user => {
       if (user === null) {
         res.status(400).send("User not found");
       } else {
+        //Using the bycrypt to compare the password input with the hashed password stored on the database
         bcrypt.compare(password, user.password, (err, resolve) => {
           if (resolve) {
+            //Creating a session for the user and redirecting to /user endpoint
+            //A registered user is given 'verified' accType and a guest is given 'anon' accType
             req.session.user = user;
             req.session.accType = "verified";
             res.redirect("/user");

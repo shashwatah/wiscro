@@ -9,7 +9,7 @@ To-Do:
     [✓] 3. postRoute.js
 [✓] 4. Modulate the frontend js after refactoring
     *Except guesPage.js - see 8 and 9
-[] 5. Change/Add comments in refactored code
+[✓] 5. Change/Add comments in refactored code
 [] 6. Solve Problem 2
 [] 7. Write Endpoints and ajax calls for 'My Questions' and 'My Answers'
 [] 8. Refactor code from line 62 to 121 in public/js/userPage/main.js and anything below line 127 if possible
@@ -19,7 +19,7 @@ To-Do:
 [] 12. Change the backend code for modals and errors(sending errors in ressponse), Complete the frontend code on every page - modals, dialog boxes, and finishing touches
     *Check the status code of the responses and change them if necessary
     *Change error messages sent in responses
-[] 13. Try using async await on the backend and userPage.js 
+[] 13. Use async await on the backend and userPage.js 
 [] 15. Add error handling in the backend
 [] 14. Refactor code one last time
 

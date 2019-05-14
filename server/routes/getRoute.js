@@ -13,7 +13,10 @@ const { Question } = require("./../models/question.js");
 
 //feedques endpoint
 router.get("/feedques", (req, res) => {
+  //Checking the session and cookie to make sure the person or device accessing the endpoint is authorized
   if (req.session.user && req.cookies.user_sid) {
+    //Finding all the questions that are still active and are not created by the user
+    //$ne helps in finding all the documents in which a certain field is not equal(ne) to the value provided
     Question.find(
       {
         status: "active",
@@ -22,17 +25,21 @@ router.get("/feedques", (req, res) => {
         }
       },
       (err, allQuestions) => {
-        let userAnswers;
+        let userQuestionsAnswered;
         let finalQuestions;
         User.findOne({
           email: req.session.user.email
         })
           .then(async user => {
-            userAnswers = user.answers;
+            //A list of all the questions answered by the user
+            userQuestionsAnswered = user.answers;
+            //Creating a final list of all the questions
+            /*This list will contain all the questions that were not created by the user and have not been 
+            answered by the user yet*/
             finalQuestions = await allQuestions.filter(current => {
               let flag = true;
-              //Try using every() method
-              userAnswers.forEach(cur => {
+              //every() method can't be used, check the checklist to see why.
+              userQuestionsAnswered.forEach(cur => {
                 if (cur.questionID === current.questionID) {
                   flag = false;
                 }

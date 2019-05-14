@@ -1,10 +1,12 @@
 ////////////////////////////////////Ajax Request////////////////////////////////////
+//Getting data from the /feedques route to show on the Answer page
 $.ajax({
   url: "/feedques",
   method: "GET"
 }).done(function(data) {
   data.forEach(function(current) {
     console.log(current);
+    //Adding questions on the page, important data is stored in data- attributes of the formed elements
     ansPage.innerHTML += `<div class = "user-question" data-questionID = "${
       current.questionID
     }"><div class = "user-question-div user-question-ans user-question-yes" data-anstype = "YES"><p>Yes</p></div><div class = "user-question-div user-question-ques"><p>${
@@ -12,11 +14,9 @@ $.ajax({
     }</p></div><div class = "user-question-div user-question-ans user-question-no" data-anstype = "NO"><p>No</p></div></div>`;
   });
 
-  const ansBtns = Array.from(
-    document.getElementsByClassName("user-question-ans")
-  );
   ansBtns.forEach(function(curAnsBtn) {
     const ans = curAnsBtn.getAttribute("data-anstype");
+    //These values will be used in event listeners to change the YES and NO buttons accordingly
     const values = {
       mouseOverRotate: "rotate(0deg)",
       mouseOverSize: "60px",
@@ -24,6 +24,7 @@ $.ajax({
       mouseOutSize: "25px"
     };
     const curAnsBtnChildren = curAnsBtn.childNodes;
+    //Hover events for Answer buttons on questions
     curAnsBtn.addEventListener("mouseover", function(event) {
       curAnsBtnChildren.forEach(function(curChild) {
         uiChange.btnHoverAnimation(
@@ -57,16 +58,19 @@ $.ajax({
         console.log(data);
       });
       ////////////////////////////////////Ajax Request////////////////////////////////////
+      //The code below can be refactored
+      //Unique values for the YES and NO buttons can be added in the values object to implement DRY
       if (ans === "YES") {
+        //Deleting every element in the question div that is not the YES button that was clicked
+        //This is part of the animation that occurs on answer click
         curAnsBtn.parentNode.childNodes.forEach(function(curNode) {
           if (curNode.nodeName !== "#text") {
-            //Evert=y Yes button contains user-question-yes in it's class list
             if (!curNode.classList.contains("user-question-yes")) {
               curNode.style.display = "none";
             }
           }
         });
-
+        //Changing the YES button accordingly
         curAnsBtnChildren.forEach(function(curChild) {
           if ((curChild.nodeName = "P")) {
             if (window.screen.width <= 1024) {
@@ -88,16 +92,16 @@ $.ajax({
         /*Adding a flexDirection of row-reverse because a No button is on the right side of the 
         question div and it needs to expand the right way(towards left) on being clicked*/
         curAnsBtn.parentNode.style.flexDirection = "row-reverse";
-        //Removing every element from the question div that is not the No button that was clicked
+        //Removing every element from the question div that is not the NO button that was clicked
+        //This is part of the animation that occurs on answer click
         curAnsBtn.parentNode.childNodes.forEach(function(curNode) {
           if (curNode.nodeName !== "#text") {
-            //Every No button contains user-question-no in it's class list
             if (!curNode.classList.contains("user-question-no")) {
               curNode.style.display = "none";
             }
           }
         });
-        //Changing the style of the No button div that was just clicked
+        //Changing the NO button accordingly
         curAnsBtnChildren.forEach(function(curChild) {
           if ((curChild.nodeName = "P")) {
             curChild.style.transform = "rotate(0deg)";

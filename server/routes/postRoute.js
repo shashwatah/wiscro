@@ -19,10 +19,9 @@ const { sessionChecker } = require("./../middleware/sessionChecker.js");
 router.post("/submitques", (req, res) => {
   //Checking if the session variable user and cookie exist
   if (req.session.user && req.cookies.user_sid) {
-    //If true
-    //Creating question id using uuid module
+    //Creating a secondary ID for the question using the uuid module
     let questionID = "question-" + uuid();
-    //Creating question
+    //Creating the question object based in teh Question schema
     let question = new Question({
       creator: {
         ID: req.session.user.userID,
@@ -50,13 +49,16 @@ router.post("/submitques", (req, res) => {
 });
 
 router.post("/submitans", (req, res) => {
+  //Checking if the session variable user and cookie exist
   if (req.session.user && req.cookies.user_sid) {
     qID = req.body.questionID;
     answer = req.body.answer;
-
+    //Finding the question with the questionID as the parameter
     Question.findOne({
       questionID: qID
     }).then(ques => {
+      //Updating the values in the question document
+      //update() can be used instead of the method below but it has some limitations
       if (answer === "YES") {
         ques.numYes += 1;
       } else if (answer === "NO") {
@@ -67,10 +69,11 @@ router.post("/submitans", (req, res) => {
       ques.perNo = Math.round((ques.numNo / ques.totalNumAns) * 100);
 
       ques.save();
-
+      //Finding the user that submitted the answer based on the '_id' of the session variable 'user'
       User.findOne({
         _id: req.session.user._id
       }).then(user => {
+        //Adding the question to the list of answers of the user
         user.answers.push({
           questionID: qID,
           answer: answer
