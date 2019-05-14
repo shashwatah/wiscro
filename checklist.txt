@@ -22,12 +22,13 @@ To-Do:
 [] 13. Use async await on the backend and userPage.js 
 [] 15. Add error handling in the backend
 [] 14. Refactor code one last time
-
+[] 15. Add KSSBro to the app
 
 Problems: 
 [✓] 1. Check if when an answer is submited and perYes and perNo are calculated the new ans is acknowledged or not
 [] 2. Need to check the time for which every question has been 'active' at regular intervals to change the 'status' to 'inactive' if required.
     - Check node-schedule nom module for this task or setInterval js function
+    - Look into Date Class and now() method and Manipulation of the time returned by the function
 [] 3. What if two people submit an answer for the same question at the same time.
 
 
