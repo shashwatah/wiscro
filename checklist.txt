@@ -10,7 +10,7 @@ To-Do:
 [✓] 4. Modulate the frontend js after refactoring
     *Except guesPage.js - see 8 and 9
 [✓] 5. Change/Add comments in refactored code
-[] 6. Solve Problem 2
+[✓] 6. Solve Problem 2
 [] 7. Write Endpoints and ajax calls for 'My Questions' and 'My Answers'
 [] 8. Refactor code from line 62 to 121 in public/js/userPage/main.js and anything below line 127 if possible
 [] 9. Complete guesPage.js - Write endpoints and frontend code with ajax calls
@@ -26,7 +26,7 @@ To-Do:
 
 Problems: 
 [✓] 1. Check if when an answer is submited and perYes and perNo are calculated the new ans is acknowledged or not
-[] 2. Need to check the time for which every question has been 'active' at regular intervals to change the 'status' to 'inactive' if required.
+[✓] 2. Need to check the time for which every question has been 'active' at regular intervals to change the 'status' to 'inactive' if required.
     - Check node-schedule nom module for this task or setInterval js function
     - Look into Date Class and now() method and Manipulation of the time returned by the function
 [] 3. What if two people submit an answer for the same question at the same time.

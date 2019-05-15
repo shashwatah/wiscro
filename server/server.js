@@ -28,6 +28,9 @@ const getRoute = require("./routes/getRoute.js");
 //Middlewares
 const { sessionChecker } = require("./middleware/sessionChecker.js");
 
+//Utils
+const { updateQuestionStatus } = require("./utils/updateQuestionStatus.js");
+
 server.use(express.static(path.join(__dirname, "../public")));
 server.use(
   bodyParser.urlencoded({
@@ -84,6 +87,8 @@ server.use(function(req, res, next) {
   });
 });
 // 404 Page Not Found
+
+setInterval(updateQuestionStatus, 1000, Question);
 
 server.listen(port, () => {
   console.log(`App running on ${port}`);
