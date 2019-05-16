@@ -13,7 +13,11 @@ $.ajax({
       current.questionText
     }</p></div><div class = "user-question-div user-question-ans user-question-no" data-anstype = "NO"><p>No</p></div></div>`;
   });
-
+  //Don't remove ansBtns variable from here.
+  //Moving it from main.js to elements.js caused a bug
+  const ansBtns = Array.from(
+    document.getElementsByClassName("user-question-ans")
+  );
   ansBtns.forEach(function(curAnsBtn) {
     const ans = curAnsBtn.getAttribute("data-anstype");
     //These values will be used in event listeners to change the YES and NO buttons accordingly

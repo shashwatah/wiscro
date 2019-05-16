@@ -20,6 +20,3 @@ const contentContainer = document.getElementById("user-content-container");
 const askSubmitBtn = document.getElementById("user-ask-form-submit-btn");
 const askTextarea = document.getElementById("user-ask-form-textarea");
 const ansPage = document.getElementById("user-main-ques-container");
-const ansBtns = Array.from(
-  document.getElementsByClassName("user-question-ans")
-);
