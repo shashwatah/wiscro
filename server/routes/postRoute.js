@@ -37,6 +37,17 @@ router.post("/submitques", (req, res) => {
     question
       .save()
       .then(question => {
+        //Finding the user that submitted the answer based on the '_id' of the session variable 'user'
+        User.findOne({
+          username: req.session.user.username,
+          email: req.session.user.email
+        }).then(user => {
+          //Adding the question to the list of questions of the user
+          user.questions.push({
+            questionID: question.questionID
+          });
+          user.save();
+        });
         res.send(`Question Submitted. Time: ${question.timeCreated}`);
       })
       .catch(err => {
@@ -51,37 +62,41 @@ router.post("/submitques", (req, res) => {
 router.post("/submitans", (req, res) => {
   //Checking if the session variable user and cookie exist
   if (req.session.user && req.cookies.user_sid) {
-    qID = req.body.questionID;
+    questionID = req.body.questionID;
     answer = req.body.answer;
     //Finding the question with the questionID as the parameter
     Question.findOne({
-      questionID: qID
-    }).then(ques => {
+      questionID: questionID
+    }).then(question => {
       //Updating the values in the question document
       //update() can be used instead of the method below but it has some limitations
       if (answer === "YES") {
-        ques.numYes += 1;
+        question.numYes += 1;
       } else if (answer === "NO") {
-        ques.numNo += 1;
+        question.numNo += 1;
       }
-      ques.totalNumAns += 1;
-      ques.perYes = Math.round((ques.numYes / ques.totalNumAns) * 100);
-      ques.perNo = Math.round((ques.numNo / ques.totalNumAns) * 100);
+      question.totalNumAns += 1;
+      question.perYes = Math.round(
+        (question.numYes / question.totalNumAns) * 100
+      );
+      question.perNo = Math.round(
+        (question.numNo / question.totalNumAns) * 100
+      );
 
-      ques.save();
-      //Finding the user that submitted the answer based on the '_id' of the session variable 'user'
-      User.findOne({
-        _id: req.session.user._id
-      }).then(user => {
-        //Adding the question to the list of answers of the user
-        user.answers.push({
-          questionID: qID,
-          answer: answer
+      question.save().then(questionSaved => {
+        //Finding the user that submitted the answer based on the '_id' of the session variable 'user'
+        User.findOne({
+          _id: req.session.user._id
+        }).then(user => {
+          //Adding the question to the list of answers of the user
+          user.answers.push({
+            questionID: questionSaved.questionID,
+            answer: answer
+          });
+          user.save();
         });
-        user.save();
+        res.status(200).send(`Answer Submitted, Your Answer = ${answer}`);
       });
-
-      res.status(200).send(`Answer Submitted, Your Answer = ${answer}`);
     });
   } else {
     res.status(400).send("Forbidden. Unauthorized access to /submitans");

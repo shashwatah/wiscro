@@ -11,7 +11,7 @@ To-Do:
     *Except guesPage.js - see 8 and 9
 [✓] 5. Change/Add comments in refactored code
 [✓] 6. Solve Problem 2
-[] 7. Solve Problem 4
+[✓] 7. Solve Problem 3
 [] 8. Change the status of questions from 'active' and 'inactive' to true and false
 [] 9. Write Endpoints and ajax calls for 'My Questions' and 'My Answers'
 [] 10. Refactor code from line 62 to 121 in public/js/userPage/main.js and anything below line 127 if possible
@@ -31,8 +31,9 @@ Problems:
 [✓] 2. Need to check the time for which every question has been 'active' at regular intervals to change the 'status' to 'inactive' if required.
     - Check node-schedule nom module for this task or setInterval js function
     - Look into Date Class and now() method and Manipulation of the time returned by the function
-[] 3. What if two people submit an answer for the same question at the same time.
-[] 4. When questions are submitted by a user the question is not added to the questions list of the user
+[✓] 3. When questions are submitted by a user the question is not added to the questions list of the user
+[] 4. What if two people submit an answer for the same question at the same time.
+
 
 [✓]For To-Do item 2: In userPage.hbs change the classnames 'user-question-yes' and 'user-question-no' or add a new 
 classname 'user-auestion-ans-button' to all the buttons then create an array of all the buttons, the specifics 
