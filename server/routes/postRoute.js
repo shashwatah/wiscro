@@ -30,7 +30,7 @@ router.post("/submitques", (req, res) => {
       },
       questionID: questionID,
       questionText: req.body.question,
-      status: "active",
+      active: true,
       timeCreated: new Date().getTime()
     });
     //Saving question

@@ -19,7 +19,7 @@ router.get("/feedques", (req, res) => {
     //$ne helps in finding all the documents in which a certain field is not equal(ne) to the value provided
     Question.find(
       {
-        status: "active",
+        active: true,
         "creator.email": {
           $ne: req.session.user.email
         }

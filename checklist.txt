@@ -12,7 +12,7 @@ To-Do:
 [✓] 5. Change/Add comments in refactored code
 [✓] 6. Solve Problem 2
 [✓] 7. Solve Problem 3
-[] 8. Change the status of questions from 'active' and 'inactive' to true and false
+[✓] 8. Change the status of questions from 'active' and 'inactive' to true and false
 [] 9. Write Endpoints and ajax calls for 'My Questions' and 'My Answers'
 [] 10. Refactor code from line 62 to 121 in public/js/userPage/main.js and anything below line 127 if possible
 [] 11. Complete guesPage.js - Write endpoints and frontend code with ajax calls

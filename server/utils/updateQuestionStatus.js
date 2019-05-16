@@ -4,7 +4,7 @@ function updateQuestionStatus(Question) {
       var dateClass = new Date();
       //Checking for time difference of 10 mins
       if (dateClass.getTime() - currentQuestion.timeCreated > 60000) {
-        currentQuestion.status = "inactive";
+        currentQuestion.active = false;
         currentQuestion.save();
       }
     });
