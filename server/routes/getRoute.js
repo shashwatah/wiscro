@@ -73,7 +73,8 @@ router.get("/myques", (req, res) => {
         if (error) {
           res.status(500).send("Could not find questions.");
         } else {
-          res.status(200).send(questions.reverse());
+          const questionsReversed = questions.reverse();
+          res.status(200).send(questionsReversed);
         }
       }
     );

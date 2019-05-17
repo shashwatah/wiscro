@@ -182,22 +182,11 @@ menuOverlayBtns.forEach(function(curMenuOvlBtn) {
           url: "/myques",
           method: "GET",
           dataType: "JSON"
-        }).done(function(data) {
-          console.log(data);
-          //Add questions to the page
-          /*
-          <div class="myques">
-					<div class="myques-ques">
-						<p>Do you like football?</p>
-					</div>
-					<div class="myques-ans">
-						<div class="myques-ans-yes" id="myques-ans-yes-1" style="width: 75%; opacity: 1">Yes: 75%</div>
-						<div class="myques-ans-no" id="myques-ans-yes-2" style="width: 25%; opacity: 0.3">No: 25%</div>
-					</div>
-				</div>
-           */
+        }).done(function(questions) {
+          console.log(questions);
+          //Adding questions to the page
           myquesPage.innerHTML = "";
-          data.forEach(function(current) {
+          questions.forEach(function(current) {
             myquesPage.innerHTML += `<div class="myques">
             <div class="myques-ques">
               <p>${current.questionText}</p>
