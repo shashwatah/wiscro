@@ -212,9 +212,13 @@ menuOverlayBtns.forEach(function(curMenuOvlBtn) {
         $.ajax({
           url: "/myans",
           method: "GET"
-        }).done(function(data) {
-          console.log(`myans request sent, data: ${data}`);
-        });
+        })
+          .done(function(data) {
+            console.log(data);
+          })
+          .fail(function(error) {
+            console.log(error);
+          });
         ////////////////////////////////////Ajax Request////////////////////////////////////
       }
       //Closing the overlay menu

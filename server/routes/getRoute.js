@@ -86,53 +86,36 @@ router.get("/myques", (req, res) => {
 
 //myans endpoint
 router.get("/myans", (req, res) => {
-  //Checking if the session variable user and cookie exist
-  //If they do then the user is logged in
   if (req.session.user && req.cookies.user_sid) {
-    /*Finding the user in the database with the email of the session variable user to get the 
-		answers array*/
-    /*Can use the session variable to get the array but the app will need an updated array if
-		the user has just submitted a question, the session variable will have the copy from when the user 
-		would have logged in*/
     User.findOne({
-      email: req.session.user.email
+      email: req.session.user.email,
+      username: req.session.user.username
     })
-      .then(user => {
-        //Storing the array in a variable
-        const answerObjs = user.answers;
-        /*Creating an array to store objects that will include the question and the answer submitted by 
-			the user*/
-        let answers = new Array();
-        let counter = 0;
-        answerObjs.forEach(curAnswerObj => {
-          //Finding each question
-          Question.findOne({
-            questionID: curAnswerObj.questionID
-          })
-            .then(question => {
-              //Storing the data
-              answers[counter++] = {
-                question: question,
-                answer: curAnswerObj.answer
-              };
-            })
-            .catch(err => {
-              //If there is an error in finding the questions then an error is sent
-              //This will be changed later on along with some UI improvements(message modals)
-              res.status(500).send("Error in finding answers");
+      .then(async user => {
+        const userAnswers = user.answers;
+        var answerData = new Array();
+        /*
+        Did not use forEach as it did not work with async/await, the response was sent a few milliseconds
+        before the forEach computation finished.
+        On the other hand for...of iteration worked with using await before Question.find
+        */
+        for (const currentAnswer of userAnswers) {
+          await Question.find({
+            questionID: currentAnswer.questionID
+          }).then(question => {
+            answerData.push({
+              question: question,
+              answer: currentAnswer.answer
             });
-        });
-
-        //Sending the answers array with status 200
-        res.status(200).send(answers);
+          });
+        }
+        res.status(200).send(answerData);
       })
       .catch(err => {
-        //If the user is not found in the databse(unlikely) then an error is sent
-        res.status(500).send("Could not find user in database");
+        res.status(500).send("Could not find user");
       });
   } else {
-    //If not send a forbidden message with status code 400
-    res.status(400).send("Forbidden");
+    res.status(400).send("Forbidden. Unauthorized access to /myans");
   }
 });
 

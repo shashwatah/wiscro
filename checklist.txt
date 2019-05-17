@@ -13,9 +13,9 @@ To-Do:
 [✓] 6. Solve Problem 2
 [✓] 7. Solve Problem 3
 [✓] 8. Change the status of questions from 'active' and 'inactive' to true and false
-[] 9. Write Endpoints and ajax calls for 'My Questions' and 'My Answers'
+[Almost Done] 9. Write Endpoints and ajax calls for 'My Questions' and 'My Answers'
 [] 10. Refactor code from line 62 to 121 in public/js/userPage/main.js and anything below line 127 if possible
-[] 11. Complete guesPage.js - Write endpoints and frontend code with ajax calls
+[] 11. Complete guestPage.js - Write endpoints and frontend code with ajax calls
 [] 12. Refactor and Modulate code in guestPage.js based on /userPage 
 [] 13. Add code on the frontend to handle errors returned in ajax calls
 [] 14. Change the backend code for modals and errors(sending errors in ressponse), Complete the frontend code on every page - modals, dialog boxes, and finishing touches
@@ -23,7 +23,7 @@ To-Do:
     *Change error messages sent in responses
 [] 15. Use async await on the backend and userPage.js 
 [] 16. Add error handling in the backend
-[] 17. Refactor code one last time
+[] 17. Refactor code one last time, handle failed ajax requests
 [] 18. Add KSSBro to the app
 
 Problems: 
