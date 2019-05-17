@@ -66,16 +66,20 @@ router.get("/myques", (req, res) => {
     //Finding the questions with the email of the user
     Question.find(
       {
-        "creator.email": req.session.user.email
+        "creator.email": req.session.user.email,
+        active: false
       },
-      (err, arr) => {
-        //Sending the array
-        res.status(200).send(arr);
+      (error, questions) => {
+        if (error) {
+          res.status(500).send("Could not find questions.");
+        } else {
+          res.status(200).send(questions.reverse());
+        }
       }
     );
   } else {
     //If not send a Forbidden message with status code 400
-    res.status(400).send("Forbidden");
+    res.status(400).send("Forbidden. Unauthorized access to /myques");
   }
 });
 

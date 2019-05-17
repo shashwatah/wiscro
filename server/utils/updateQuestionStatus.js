@@ -5,7 +5,7 @@ function updateQuestionStatus(Question) {
       //Checking for time difference of 10 mins
       if (
         dateClass.getTime() - currentQuestion.timeCreated > 60000 &&
-        currentQuestion.active === false
+        currentQuestion.active === true
       ) {
         currentQuestion.active = false;
         currentQuestion.save();
