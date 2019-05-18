@@ -93,7 +93,7 @@ router.get("/myans", (req, res) => {
     })
       .then(async user => {
         const userAnswers = user.answers;
-        var answerData = new Array();
+        let answerData = new Array();
         /*
         Did not use forEach as it did not work with async/await, the response was sent a few milliseconds
         before the forEach computation finished.
@@ -109,7 +109,8 @@ router.get("/myans", (req, res) => {
             });
           });
         }
-        res.status(200).send(answerData);
+        let answerDataReversed = answerData.reverse();
+        res.status(200).send(answerDataReversed);
       })
       .catch(err => {
         res.status(500).send("Could not find user");

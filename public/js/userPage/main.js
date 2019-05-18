@@ -195,12 +195,12 @@ menuOverlayBtns.forEach(function(curMenuOvlBtn) {
               <div class="myques-ans-yes" style="width: ${
                 current.perYes
               }%; opacity: ${current.perYes > current.perNo ? 1 : 0.3}">${
-              current.perYes > current.perNo ? `Yes: ${current.perYes}%` : ``
+              current.perYes < 8 ? `` : `Yes: ${current.perYes}%`
             }</div>
               <div class="myques-ans-no" style="width: ${
                 current.perNo
               }%; opacity: ${current.perNo > current.perYes ? 1 : 0.3}">${
-              current.perNo > current.perYes ? `No: ${current.perNo}%` : ``
+              current.perNo < 8 ? `` : `No: ${current.perNo}%`
             }</div>
             </div>
           </div>`;
@@ -213,8 +213,32 @@ menuOverlayBtns.forEach(function(curMenuOvlBtn) {
           url: "/myans",
           method: "GET"
         })
-          .done(function(data) {
-            console.log(data);
+          .done(function(answers) {
+            console.log(answers);
+            myansPage.innerHTML = "";
+            answers.forEach(function(current) {
+              const question = current.question[0];
+              const answer = current.answer;
+              myansPage.innerHTML += `<div class="myans">
+              <div class="myans-ques">
+                <p>${question.questionText}</p>
+              </div>
+              <div class="myans-ans">
+                <div class="myques-ans-yes"
+                style="width: ${question.perYes}%; ${
+                answer === "YES"
+                  ? `background-color: #1190CB; opacity: 1;`
+                  : `background-color: #111111; opacity: 0.5;`
+              }">${question.perYes < 8 ? "" : `Yes: ${question.perYes}%`}</div>
+                <div class="myques-ans-no"
+                style="width: ${question.perNo}%; ${
+                answer === "NO"
+                  ? `background-color: #1190CB; opacity: 1;`
+                  : `background-color: #111111; opacity: 0.5;`
+              }">${question.perNo < 8 ? "" : `No: ${question.perNo}%`}</div>
+              </div>
+            </div>`;
+            });
           })
           .fail(function(error) {
             console.log(error);

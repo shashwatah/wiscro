@@ -21,3 +21,4 @@ const askSubmitBtn = document.getElementById("user-ask-form-submit-btn");
 const askTextarea = document.getElementById("user-ask-form-textarea");
 const ansPage = document.getElementById("user-main-ques-container");
 const myquesPage = document.getElementById("user-myques-history-page");
+const myansPage = document.getElementById("user-myans-history-page");

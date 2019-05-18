@@ -13,8 +13,9 @@ To-Do:
 [✓] 6. Solve Problem 2
 [✓] 7. Solve Problem 3
 [✓] 8. Change the status of questions from 'active' and 'inactive' to true and false
-[Almost Done] 9. Write Endpoints and ajax calls for 'My Questions' and 'My Answers'
+[✓] 9. Write Endpoints and ajax calls for 'My Questions' and 'My Answers'
 [] 10. Refactor code from line 62 to 121 in public/js/userPage/main.js and anything below line 127 if possible
+[] 11. Form the innerHTML strings on the server-side instead of the client-side
 [] 11. Complete guestPage.js - Write endpoints and frontend code with ajax calls
 [] 12. Refactor and Modulate code in guestPage.js based on /userPage 
 [] 13. Add code on the frontend to handle errors returned in ajax calls
