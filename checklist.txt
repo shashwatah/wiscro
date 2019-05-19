@@ -46,4 +46,5 @@ but filter requires a flag(boolean) to be returned for each element in the array
 Improvements: 
 [] 1. Use token(JSON web tokens) authentication instead of sessions and store data on the client-side instead of putting load on the server-side
 [] 2. Make ajax requests to /feedques, /myques and /myans together right when the user logs in and add a way to refresh the data
-[] 3. Read this - https://engineering.linkedin.com/nodejs/blazing-fast-nodejs-10-performance-tips-linkedin-mobile#client-side 
+[] 3. Add OAuth
+[] 4. Read this - https://engineering.linkedin.com/nodejs/blazing-fast-nodejs-10-performance-tips-linkedin-mobile#client-side 
