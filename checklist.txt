@@ -16,8 +16,8 @@ To-Do:
 [✓] 9. Write Endpoints and ajax calls for 'My Questions' and 'My Answers'
 [✓] 10. Refactor code from line 62 to 121 in public/js/userPage/main.js and anything below line 127 if possible
 [✓] 11. Form the innerHTML strings on the server-side instead of the client-side
-[] 12. Complete guestPage.js - Write endpoints and frontend code with ajax calls
-[] 13. Refactor and Modulate code in guestPage.js based on /userPage 
+[Started Working on it] 12. Complete guestPage.js - Write endpoints and frontend code with ajax calls
+[Started Working on it] 13. Refactor and Modulate code in guestPage.js based on /userPage 
 [] 14. Add code on the frontend to handle errors returned in ajax calls
 [] 15. Change the backend code for modals and errors(sending errors in ressponse), Complete the frontend code on every page - modals, dialog boxes, and finishing touches
     *Check the status code of the responses and change them if necessary

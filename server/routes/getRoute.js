@@ -178,6 +178,16 @@ router.get("/myans", (req, res) => {
   }
 });
 
+router.get("/guestques", (req, res) => {
+  Question.find({
+    active: false
+  })
+    .limit(5)
+    .then(docs => {
+      res.send(docs);
+    });
+});
+
 //Exporting router variable
 module.exports = {
   router
