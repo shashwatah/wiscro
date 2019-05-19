@@ -14,18 +14,18 @@ To-Do:
 [✓] 7. Solve Problem 3
 [✓] 8. Change the status of questions from 'active' and 'inactive' to true and false
 [✓] 9. Write Endpoints and ajax calls for 'My Questions' and 'My Answers'
-[] 10. Refactor code from line 62 to 121 in public/js/userPage/main.js and anything below line 127 if possible
-[] 11. Form the innerHTML strings on the server-side instead of the client-side
-[] 11. Complete guestPage.js - Write endpoints and frontend code with ajax calls
-[] 12. Refactor and Modulate code in guestPage.js based on /userPage 
-[] 13. Add code on the frontend to handle errors returned in ajax calls
-[] 14. Change the backend code for modals and errors(sending errors in ressponse), Complete the frontend code on every page - modals, dialog boxes, and finishing touches
+[✓] 10. Refactor code from line 62 to 121 in public/js/userPage/main.js and anything below line 127 if possible
+[✓] 11. Form the innerHTML strings on the server-side instead of the client-side
+[] 12. Complete guestPage.js - Write endpoints and frontend code with ajax calls
+[] 13. Refactor and Modulate code in guestPage.js based on /userPage 
+[] 14. Add code on the frontend to handle errors returned in ajax calls
+[] 15. Change the backend code for modals and errors(sending errors in ressponse), Complete the frontend code on every page - modals, dialog boxes, and finishing touches
     *Check the status code of the responses and change them if necessary
     *Change error messages sent in responses
-[] 15. Use async await on the backend and userPage.js 
-[] 16. Add error handling in the backend
-[] 17. Refactor code one last time, handle failed ajax requests
-[] 18. Add KSSBro to the app
+[] 16. Use async await on the backend and userPage.js 
+[] 17. Add error handling in the backend
+[] 18. Refactor code one last time, handle failed ajax requests
+[] 19. Add KSSBro to the app and a section showing details of the app(About section)
 
 Problems: 
 [✓] 1. Check if when an answer is submited and perYes and perNo are calculated the new ans is acknowledged or not
@@ -42,3 +42,8 @@ that differentiate the yes and no buttons can be stored in data attributes.
 [X]For To-Do item 3 Sub-item 2: Tried using every() method on userAnswers list in the /feedques endpoint to form
 the finalQuestions list but every() method test whether every element in an array passes the test in the function 
 but filter requires a flag(boolean) to be returned for each element in the array
+
+Improvements: 
+[] 1. Use token(JSON web tokens) authentication instead of sessions and store data on the client-side instead of putting load on the server-side
+[] 2. Make ajax requests to /feedques, /myques and /myans together right when the user logs in and add a way to refresh the data
+[] 3. Read this - https://engineering.linkedin.com/nodejs/blazing-fast-nodejs-10-performance-tips-linkedin-mobile#client-side 

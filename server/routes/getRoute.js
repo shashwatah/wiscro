@@ -27,6 +27,7 @@ router.get("/feedques", (req, res) => {
       (err, allQuestions) => {
         let userQuestionsAnswered;
         let finalQuestions;
+        let finalQuestionsStrings = new Array();
         User.findOne({
           email: req.session.user.email
         })
@@ -46,7 +47,16 @@ router.get("/feedques", (req, res) => {
               });
               return flag;
             });
-            res.status(200).send(finalQuestions);
+            for (var current of finalQuestions) {
+              finalQuestionsStrings.push({
+                string: `<div class = "user-question" data-questionID = "${
+                  current.questionID
+                }"><div class = "user-question-div user-question-ans user-question-yes" data-anstype = "YES"><p>Yes</p></div><div class = "user-question-div user-question-ques"><p>${
+                  current.questionText
+                }</p></div><div class = "user-question-div user-question-ans user-question-no" data-anstype = "NO"><p>No</p></div></div>`
+              });
+            }
+            res.status(200).send(finalQuestionsStrings);
           })
           .catch(err => {
             res.status(500).send("Error feeding questions");
@@ -74,7 +84,29 @@ router.get("/myques", (req, res) => {
           res.status(500).send("Could not find questions.");
         } else {
           const questionsReversed = questions.reverse();
-          res.status(200).send(questionsReversed);
+          let questionStrings = new Array();
+          for (var current of questionsReversed) {
+            questionStrings.push({
+              string: `<div class="myques">
+            <div class="myques-ques">
+              <p>${current.questionText}</p>
+            </div>
+            <div class="myques-ans">
+              <div class="myques-ans-yes" style="width: ${
+                current.perYes
+              }%; opacity: ${current.perYes > current.perNo ? 1 : 0.3}">${
+                current.perYes < 8 ? `` : `Yes: ${current.perYes}%`
+              }</div>
+              <div class="myques-ans-no" style="width: ${
+                current.perNo
+              }%; opacity: ${current.perNo > current.perYes ? 1 : 0.3}">${
+                current.perNo < 8 ? `` : `No: ${current.perNo}%`
+              }</div>
+            </div>
+          </div>`
+            });
+          }
+          res.status(200).send(questionStrings);
         }
       }
     );
@@ -94,6 +126,7 @@ router.get("/myans", (req, res) => {
       .then(async user => {
         const userAnswers = user.answers;
         let answerData = new Array();
+        let answerStrings = new Array();
         /*
         Did not use forEach as it did not work with async/await, the response was sent a few milliseconds
         before the forEach computation finished.
@@ -110,7 +143,32 @@ router.get("/myans", (req, res) => {
           });
         }
         let answerDataReversed = answerData.reverse();
-        res.status(200).send(answerDataReversed);
+        for (var current of answerDataReversed) {
+          const question = current.question[0];
+          const answer = current.answer;
+          answerStrings.push({
+            string: `<div class="myans">
+          <div class="myans-ques">
+            <p>${question.questionText}</p>
+          </div>
+          <div class="myans-ans">
+            <div class="myques-ans-yes"
+            style="width: ${question.perYes}%; ${
+              answer === "YES"
+                ? `background-color: #1190CB; opacity: 1;`
+                : `background-color: #111111; opacity: 0.5;`
+            }">${question.perYes < 8 ? "" : `Yes: ${question.perYes}%`}</div>
+            <div class="myques-ans-no"
+            style="width: ${question.perNo}%; ${
+              answer === "NO"
+                ? `background-color: #1190CB; opacity: 1;`
+                : `background-color: #111111; opacity: 0.5;`
+            }">${question.perNo < 8 ? "" : `No: ${question.perNo}%`}</div>
+          </div>
+        </div>`
+          });
+        }
+        res.status(200).send(answerStrings);
       })
       .catch(err => {
         res.status(500).send("Could not find user");

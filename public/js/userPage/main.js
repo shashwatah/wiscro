@@ -7,11 +7,7 @@ $.ajax({
   data.forEach(function(current) {
     console.log(current);
     //Adding questions on the page, important data is stored in data- attributes of the formed elements
-    ansPage.innerHTML += `<div class = "user-question" data-questionID = "${
-      current.questionID
-    }"><div class = "user-question-div user-question-ans user-question-yes" data-anstype = "YES"><p>Yes</p></div><div class = "user-question-div user-question-ques"><p>${
-      current.questionText
-    }</p></div><div class = "user-question-div user-question-ans user-question-no" data-anstype = "NO"><p>No</p></div></div>`;
+    ansPage.innerHTML += current.string;
   });
   //Don't remove ansBtns variable from here.
   //Moving it from main.js to elements.js caused a bug
@@ -182,28 +178,12 @@ menuOverlayBtns.forEach(function(curMenuOvlBtn) {
           url: "/myques",
           method: "GET",
           dataType: "JSON"
-        }).done(function(questions) {
-          console.log(questions);
+        }).done(function(data) {
+          console.log(data);
           //Adding questions to the page
           myquesPage.innerHTML = "";
-          questions.forEach(function(current) {
-            myquesPage.innerHTML += `<div class="myques">
-            <div class="myques-ques">
-              <p>${current.questionText}</p>
-            </div>
-            <div class="myques-ans">
-              <div class="myques-ans-yes" style="width: ${
-                current.perYes
-              }%; opacity: ${current.perYes > current.perNo ? 1 : 0.3}">${
-              current.perYes < 8 ? `` : `Yes: ${current.perYes}%`
-            }</div>
-              <div class="myques-ans-no" style="width: ${
-                current.perNo
-              }%; opacity: ${current.perNo > current.perYes ? 1 : 0.3}">${
-              current.perNo < 8 ? `` : `No: ${current.perNo}%`
-            }</div>
-            </div>
-          </div>`;
+          data.forEach(function(current) {
+            myquesPage.innerHTML += current.string;
           });
         });
         ////////////////////////////////////Ajax Request////////////////////////////////////
@@ -213,31 +193,11 @@ menuOverlayBtns.forEach(function(curMenuOvlBtn) {
           url: "/myans",
           method: "GET"
         })
-          .done(function(answers) {
-            console.log(answers);
+          .done(function(data) {
+            console.log(data);
             myansPage.innerHTML = "";
-            answers.forEach(function(current) {
-              const question = current.question[0];
-              const answer = current.answer;
-              myansPage.innerHTML += `<div class="myans">
-              <div class="myans-ques">
-                <p>${question.questionText}</p>
-              </div>
-              <div class="myans-ans">
-                <div class="myques-ans-yes"
-                style="width: ${question.perYes}%; ${
-                answer === "YES"
-                  ? `background-color: #1190CB; opacity: 1;`
-                  : `background-color: #111111; opacity: 0.5;`
-              }">${question.perYes < 8 ? "" : `Yes: ${question.perYes}%`}</div>
-                <div class="myques-ans-no"
-                style="width: ${question.perNo}%; ${
-                answer === "NO"
-                  ? `background-color: #1190CB; opacity: 1;`
-                  : `background-color: #111111; opacity: 0.5;`
-              }">${question.perNo < 8 ? "" : `No: ${question.perNo}%`}</div>
-              </div>
-            </div>`;
+            data.forEach(function(current) {
+              myansPage.innerHTML += current.string;
             });
           })
           .fail(function(error) {
