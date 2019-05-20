@@ -3,7 +3,7 @@
 # Wiscro
 
 Wiscro is a web-app made with Node.js, MongoDB(Mongoose), Handlebars.
-Users can ask questions to other users and answer other people's questions by choosing one of the two options, anonymously.
+Users can ask questions to other users and answer other user's questions by choosing one of the two options, anonymously.
 
 ## Getting Started
 
