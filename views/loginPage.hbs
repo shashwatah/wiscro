@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Login | Wiscro</title>
-	<link rel = "stylesheet" href = "../css/loginPage.css" type = "text/css"/>
-	<link rel = "shortcut icon" href = "../images/logo.png" type = "image/png"/>
+	<link rel="stylesheet" href="../css/loginPage.css" type="text/css" />
+	<link rel="shortcut icon" href="../images/logo.png" type="image/png" />
 </head>
-<body>
-	<div class = "page-container" id = "login-container">
-		<img class = "logo" id = "login-logo" src = "../images/wiscro.png"/>
-		<p id = "login-form-title">Login to wiscro</p>
-		<form class = "main-form" id = "login-form" method = "POST" action = "/login">
-			<input class = "form-input" id = "login-input-email" type = "email" name = "email" placeholder = "Email"/>
-			<input class = "form-input" id = "login-input-pass" type = "password" name = "password" placeholder = "Password"/>
-			<input class = "form-button" id = "login-input-button" type = "submit" value = "Login"/>
-			<a class = "link" id = "new-acc-link" href = "/reg"><input class = "form-button" id = "login-new-acc-button" type = "button" value = "Create a new Account"></a>
-		</form>	
-	</div>
-	<script src = "../js/jquery.js"></script>
-	<script src = "../js/loginPage.js"></script>
-</body>
-</html>
 
+<body>
+	<div class="page-container" id="login-container">
+		<img class="logo" id="login-logo" src="../images/wiscro.png" />
+		<p id="login-form-title">Login to wiscro</p>
+		<form class="main-form" id="login-form" method="POST" action="/login">
+			<input class="form-input" id="login-input-email" type="email" name="email" placeholder="Email" />
+			<input class="form-input" id="login-input-pass" type="password" name="password" placeholder="Password" />
+			<input class="form-button" id="login-input-button" type="submit" value="Login" />
+			<a class="link" id="new-acc-link" href="/reg"><input class="form-button" id="login-new-acc-button"
+					type="button" value="Create a new Account"></a>
+		</form>
+	</div>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/loginPage.js"></script>
+</body>
+
+</html>
