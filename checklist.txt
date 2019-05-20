@@ -26,6 +26,7 @@ To-Do:
 [] 17. Add error handling in the backend
 [] 18. Refactor code one last time, handle failed ajax requests
 [] 19. Add KSSBro to the app and a section showing details of the app(About section)
+[✓] 20. Write README
 
 Problems: 
 [✓] 1. Check if when an answer is submited and perYes and perNo are calculated the new ans is acknowledged or not
