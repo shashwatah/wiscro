@@ -2,7 +2,7 @@
 
 # Wiscro
 
-Wiscro is a web-app made with Node.js, MongoDB(Mongoose), Handlebars.
+Wiscro is a web-app made with Node.js, Express, MongoDB, Mongoose, Handlebars and JQuery.
 Users can ask questions to other users and answer other user's questions by choosing one of the two options, anonymously.
 
 ## Getting Started
@@ -22,12 +22,21 @@ npm install
 Then run the app
 
 ```bash
-npm start
+node server/server.js
 ```
 
 ### Deployment
 
 This app will be deployed on heroku when it is completed.
+
+### Built With
+
+- [Node.js](https://nodejs.org/en/)
+- [Express](https://expressjs.com/)
+- [MongoDB](https://www.mongodb.com/)
+- [Mongoose](https://mongoosejs.com/)
+- [Handlebars](https://handlebarsjs.com/)
+- [JQuery](https://jquery.com/)
 
 ### Authors
 
