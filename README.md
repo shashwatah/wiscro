@@ -1,4 +1,4 @@
-![Wiscro](https://raw.githubusercontent.com/KSSBro/wiscro/master/public/images/wiscro_main.png)
+![Wiscro](https://raw.githubusercontent.com/KSSBro/wiscro/master/public/images/wiscro_main.png =100x350)
 
 # Wiscro
 
