@@ -46,17 +46,6 @@ router.get("/user", (req, res) => {
   }
 });
 
-//Guest page endpoint(Try the app)
-router.get("/try", sessionChecker, (req, res) => {
-  //Creating session for the guest
-  //A registered user is given 'verified' accType and a guest is given 'anon' accType
-  req.session.accType = "anon";
-  //Rendering the guest page with template data
-  res.render("trialPage.hbs", {
-    username: "Guest"
-  });
-});
-
 //Exporting router variable
 module.exports = {
   router

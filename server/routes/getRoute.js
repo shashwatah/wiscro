@@ -131,6 +131,7 @@ router.get("/myans", (req, res) => {
         Did not use forEach as it did not work with async/await, the response was sent a few milliseconds
         before the forEach computation finished.
         On the other hand for...of iteration worked with using await before Question.find
+        forEach won't work properly if it has an async function inside of it
         */
         for (const currentAnswer of userAnswers) {
           await Question.find({
@@ -178,19 +179,7 @@ router.get("/myans", (req, res) => {
   }
 });
 
-router.get("/guestques", (req, res) => {
-  Question.find({
-    active: false
-  })
-    .limit(5)
-    .then(docs => {
-      res.send(docs);
-    });
-});
-
 //Exporting router variable
 module.exports = {
   router
 };
-
-//Refactor the code
