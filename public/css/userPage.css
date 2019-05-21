@@ -1,0 +1,735 @@
+@import url("https://fonts.googleapis.com/css?family=Varela+Round");
+
+body {
+  margin: 0px;
+  padding: 0px;
+  background: #111111;
+  text-align: center;
+  font-family: "Varela Round", sans-serif;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.user-page {
+  color: white;
+}
+
+*:focus {
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.inactive-page {
+  display: none;
+}
+
+#user-topbar {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 75px;
+  background: #232323;
+  box-shadow: 0px 0px 50px black;
+  z-index: 100;
+}
+
+#user-topbar #user-topbar-logo {
+  margin: auto;
+  margin-top: 12.5px;
+  height: 50px;
+  width: 150px;
+  cursor: pointer;
+}
+
+#user-topbar #user-topbar-menu-btn {
+  position: fixed;
+  height: 30px;
+  width: 30px;
+  left: 10px;
+  margin-top: 22.5px;
+  margin-left: 40px;
+  cursor: pointer;
+}
+
+#user-bottombar {
+  z-index: 100;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 75px;
+  background: #232323;
+  box-shadow: 0px 0px 50px black;
+}
+
+.home-page-button {
+  margin: 5px;
+  margin-top: 12.5px;
+  height: 50px;
+  width: 200px;
+  border-radius: 25px;
+  border: 1px solid #1190cb;
+  background: none;
+  font-family: "Varela Round", sans-serif;
+  font-weight: bold;
+  font-size: 22px;
+  color: #1190cb;
+  cursor: pointer;
+}
+
+.home-page-button:hover {
+  background-color: #1190cb;
+  border: 1px solid #1190cb;
+  color: white;
+  width: 205px;
+  height: 55px;
+  transition: 0.1s linear;
+  margin-top: 10px;
+}
+
+.active-home-page-button {
+  background: #1190cb;
+  color: white;
+}
+
+#user-content-container {
+  position: fixed;
+  top: 75px;
+  height: calc(100% - 170px);
+  width: 100%;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+#user-content-container::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+#user-content-container::-webkit-scrollbar-thumb {
+  background: black;
+}
+
+#user-main-ques-container {
+  margin: auto;
+  width: 575px;
+}
+
+#user-main-ques-container .user-question {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  background: #232323;
+  height: 425px;
+  margin-top: 45px;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0px 0px 60px black;
+}
+
+.user-question .user-question-div {
+  height: 100%;
+  margin: 0px;
+  color: white;
+}
+
+.user-question-yes {
+  width: 48px;
+  background: #019587;
+  transition: 0.1s linear;
+  cursor: pointer;
+  transform: translateZ(0);
+}
+
+.user-question-yes:hover {
+  width: 450px;
+  transition: 0.1s linear;
+}
+
+.user-question-yes p {
+  font-weight: bold;
+  font-size: 25px;
+  margin-top: 185px;
+  transform: rotate(-90deg);
+  transition: 0.1s linear;
+}
+
+/*.user-question-yes p:hover {
+	font-size: 40px;
+	transform: rotate(0deg);
+	transition: 0.1s linear;
+}*/
+
+.user-question-ques {
+  width: 500px;
+  min-width: 400px;
+  background: none;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.user-question-ques::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.user-question-ques::-webkit-scrollbar-thumb {
+  background: black;
+}
+
+.user-question-ques p {
+  font-size: 28px;
+  margin: 30px;
+}
+
+.user-question-no {
+  width: 48px;
+  background: #c5002f;
+  transition: 0.1s linear;
+  cursor: pointer;
+  transform: translateZ(0);
+}
+
+.user-question-no:hover {
+  width: 450px;
+  transition: 0.1s linear;
+}
+
+.user-question-no p {
+  font-weight: bold;
+  font-size: 25px;
+  margin-top: 190px;
+  transform: rotate(90deg);
+  transition: 0.1s linear;
+}
+
+#user-main-ask-container {
+  height: 500px;
+  margin: auto;
+  margin-top: 25px;
+  width: 600px;
+}
+
+#user-main-ask-container input {
+  display: block;
+  margin: auto;
+}
+
+#user-main-ask-container #user-ask-form-textarea {
+  height: 310px;
+  width: 525px;
+  font-size: 20px;
+  border: 1.5px solid #019587;
+  background: #232323;
+  color: white;
+  font-family: "Varela Round", sans-serif;
+  box-shadow: 0px 0px 50px black;
+  resize: none;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+#user-main-ask-container #user-ask-form-textarea::placeholder {
+  color: white;
+}
+
+#user-main-ask-container #user-ask-form-textarea::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+#user-main-ask-container #user-ask-form-textarea::-webkit-scrollbar-thumb {
+  background: black;
+}
+
+#user-main-ask-container label {
+  float: left;
+  margin-left: 35px;
+}
+
+#user-main-ask-container #user-ask-form-submit-btn {
+  clear: both;
+  display: block;
+  margin-top: 30px;
+  height: 35px;
+  width: 200px;
+  background: #019587;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Varela Round", sans-serif;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0px 0px 75px black;
+}
+
+#user-menu-overlay {
+  transition: 0.1s linear;
+  position: absolute;
+  z-index: 20000000;
+  height: 100%;
+  width: 100%;
+  background: #1190cb;
+}
+
+#user-menu-overlay #user-menu-overlay-topbar {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 75px;
+}
+
+#user-menu-overlay-topbar-menu-btn {
+  position: fixed;
+  height: 30px;
+  width: 30px;
+  left: 10px;
+  margin-top: 22.5px;
+  margin-left: 40px;
+  cursor: pointer;
+}
+
+#user-menu-overlay-topbar-logo {
+  margin: auto;
+  margin-top: 12.5px;
+  height: 50px;
+  width: 150px;
+  cursor: pointer;
+}
+
+/*#user-menu-overlay #remove-btn {
+	float: left;
+	height: 30px;
+	width: 30px;
+	background: none;
+	border: none;
+	color: #232323;
+	font-size: 30px;
+	font-family: "Varela Round", sans-serif;
+	font-weight: bold;
+	margin-top: 22px;
+	margin-left: 47px;
+}
+
+#user-menu-overlay img{
+	clear: both;
+	margin-left: -78px;
+	margin-top: 12px;
+}*/
+
+.menu-overlay-inactive {
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.1s linear;
+}
+
+#menu-greeting {
+  font-size: 25px;
+  font-weight: bold;
+  margin: auto;
+  margin-top: 50px;
+  color: #232323;
+}
+
+#user-menu-overlay-nav-list {
+  list-style: none;
+  margin-top: 75px;
+  margin-left: -42px;
+  color: #232323;
+}
+
+#user-menu-overlay-nav-list a {
+  text-decoration: none;
+  color: #232323;
+}
+
+#user-menu-overlay-nav-list li {
+  padding: 5px;
+  margin-top: 10px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Varela Round", sans-serif;
+  transition: 0.05s linear;
+  cursor: pointer;
+}
+
+#user-menu-overlay-nav-list li:hover {
+  background: #232323;
+  color: #1190cb;
+  font-size: 25px;
+  transition: 0.05s linear;
+}
+
+#user-myques-history-page {
+  width: 575px;
+  margin: auto;
+}
+
+#user-myques-history-page .myques {
+  height: 275px;
+  width: 100%;
+  background: #232323;
+  margin-top: 50px;
+  box-shadow: 0px 0px 50px black;
+}
+
+#user-myques-history-page .myques .myques-ques {
+  position: relative;
+  top: 0px;
+  height: 225px;
+  width: 100%;
+  background: none;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+#user-myques-history-page .myques .myques-ques::-webkit-scrollbar {
+  width: 0px;
+  background: none;
+}
+
+#user-myques-history-page .myques .myques-ques::-webkit-scrollbar-thumb {
+  background: none;
+}
+
+#user-myques-history-page .myques .myques-ques p {
+  padding: 10px;
+  font-size: 20px;
+}
+
+#user-myques-history-page .myques .myques-ans {
+  position: relative;
+  bottom: 0px;
+  width: 100%;
+  height: 50px;
+  display: inline-flex;
+  font-size: 12px;
+  line-height: 50px;
+  font-weight: bold;
+}
+
+.myques-ans-yes {
+  height: 100%;
+  background: #019587;
+}
+
+.myques-ans-no {
+  height: 100%;
+  background: #c5002f;
+}
+
+#user-myans-history-page {
+  width: 575px;
+  margin: auto;
+}
+
+#user-myans-history-page .myans {
+  height: 275px;
+  width: 100%;
+  background: #232323;
+  margin-top: 50px;
+  box-shadow: 0px 0px 50px black;
+}
+
+#user-myans-history-page .myans .myans-ques {
+  position: relative;
+  top: 0px;
+  height: 225px;
+  width: 100%;
+  background: none;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+#user-myans-history-page .myans .myans-ques::-webkit-scrollbar {
+  width: 0px;
+  background: none;
+}
+
+#user-myans-history-page .myans .myans-ques::-webkit-scrollbar-thumb {
+  background: none;
+}
+
+#user-myans-history-page .myans .myans-ques p {
+  padding: 10px;
+  font-size: 20px;
+}
+
+#user-myans-history-page .myans .myans-ans {
+  position: relative;
+  bottom: 0px;
+  width: 100%;
+  height: 50px;
+  display: inline-flex;
+  font-size: 12px;
+  line-height: 50px;
+  font-weight: bold;
+}
+
+.myans-ans-yes {
+  height: 100%;
+}
+
+.myans-ans-no {
+  height: 100%;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 1024px) {
+  html {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  body {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  #user-topbar {
+    height: 150px;
+    box-shadow: 0px 0px 150px black;
+  }
+
+  #user-topbar #user-topbar-logo {
+    margin: auto;
+    margin-top: 30px;
+    height: 90px;
+    width: 280px;
+  }
+
+  #user-topbar #user-topbar-menu-btn {
+    height: 60px;
+    width: 60px;
+    left: 40px;
+    margin-top: 52px;
+    margin-left: 40px;
+  }
+
+  #user-bottombar {
+    height: 150px;
+    box-shadow: 0px 0px 150px black;
+  }
+
+  .home-page-button {
+    margin: 0px;
+    margin-top: 0px;
+    height: 100%;
+    width: 49.5%;
+    border-radius: 0px;
+    border: 0px;
+    background: none;
+    font-family: "Varela Round", sans-serif;
+    font-weight: bold;
+    font-size: 60px;
+    line-height: 150px;
+    color: #1190cb;
+  }
+
+  .home-page-button:hover {
+    margin: 0px;
+    margin-top: 0px;
+    height: 100%;
+    width: 49.5%;
+    border-radius: 0px;
+    border: 0px;
+  }
+
+  .active-home-page-button {
+    background: #1190cb;
+    color: white;
+  }
+
+  #user-content-container {
+    position: fixed;
+    top: 150px;
+    height: calc(100% - 350px);
+    width: 100%;
+    overflow: scroll;
+  }
+
+  #user-main-ques-container {
+    width: 100%;
+    margin-top: 50px;
+    height: auto;
+  }
+
+  #user-main-ques-container .user-question {
+    width: 95%;
+    height: calc(100vh - 650px);
+    margin-top: 100px;
+  }
+
+  .user-question-yes {
+    width: 100px;
+    vertical-align: center;
+  }
+
+  .user-question-yes:hover {
+    width: 100px;
+  }
+
+  .user-question-yes p {
+    font-size: 48px;
+    margin-top: 525px;
+  }
+
+  /*.user-question-yes p:hover {
+		font-size: 40px;
+		transform: rotate(0deg);
+		transition: 0.1s linear;
+	}*/
+
+  .user-question-ques {
+    min-width: 750px;
+    width: 750px;
+  }
+
+  .user-question-ques p {
+    font-size: 70px;
+  }
+
+  .user-question-no {
+    width: 100px;
+  }
+
+  .user-question-no:hover {
+    width: 100px;
+  }
+
+  .user-question-no p {
+    font-size: 48px;
+    margin-top: 525px;
+  }
+
+  #user-main-ask-container {
+    height: 95%;
+    width: 95%;
+    margin-top: 100px;
+  }
+
+  #user-main-ask-container #user-ask-form-textarea {
+    height: 800px;
+    width: 900px;
+    font-size: 55px;
+    border: 2px solid #019587;
+  }
+
+  #user-main-ask-container #user-ask-form-submit-btn {
+    margin-top: 40px;
+    height: 70px;
+    width: 350px;
+    border-radius: 50px;
+    font-size: 38px;
+  }
+
+  #user-menu-overlay #user-menu-overlay-topbar {
+    height: 150px;
+  }
+
+  #user-menu-overlay-topbar-menu-btn {
+    height: 60px;
+    width: 60px;
+    left: 40px;
+    margin-top: 52px;
+    margin-left: 40px;
+  }
+
+  #user-menu-overlay-topbar-logo {
+    margin: auto;
+    margin-top: 30px;
+    height: 90px;
+    width: 280px;
+  }
+
+  #menu-greeting {
+    font-size: 50px;
+    margin-top: 110px;
+  }
+
+  #user-menu-overlay-nav-list {
+    margin-top: 160px;
+  }
+
+  #user-menu-overlay-nav-list li {
+    padding: 20px;
+    height: 80px;
+    line-height: 80px;
+    font-weight: bold;
+    margin: 10px;
+    font-family: "Varela Round", sans-serif;
+    font-size: 45px;
+  }
+
+  #user-menu-overlay-nav-list li:hover {
+    font-size: 50px;
+  }
+
+  #user-myques-history-page {
+    width: 95%;
+  }
+
+  #user-myques-history-page .myques {
+    height: 500px;
+    margin-top: 75px;
+    box-shadow: 0px 0px 50px black;
+  }
+
+  #user-myques-history-page .myques .myques-ques {
+    height: 410px;
+  }
+
+  #user-myques-history-page .myques .myques-ques p {
+    font-size: 36px;
+  }
+
+  #user-myques-history-page .myques .myques-ans {
+    height: 90px;
+    font-size: 18px;
+    line-height: 90px;
+  }
+
+  #user-myans-history-page {
+    width: 95%;
+  }
+
+  #user-myans-history-page .myans {
+    height: 500px;
+    margin-top: 75px;
+    box-shadow: 0px 0px 50px black;
+  }
+
+  #user-myans-history-page .myans .myans-ques {
+    height: 410px;
+  }
+
+  #user-myans-history-page .myans .myans-ques p {
+    font-size: 36px;
+  }
+
+  #user-myans-history-page .myans .myans-ans {
+    height: 90px;
+    font-size: 18px;
+    line-height: 90px;
+  }
+}
