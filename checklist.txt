@@ -26,8 +26,9 @@ To-Do:
 [] 16. Use async await on the backend and userPage.js 
 [] 17. Add error handling in the backend
 [] 18. Refactor code one last time, handle failed ajax requests
-[] 19. Add KSSBro to the app and a section showing details of the app(About section)
-[✓] 20. Write README
+[] 19. Remove redundant code and comments
+[] 20. Add KSSBro to the app and a section showing details of the app(About section)
+[✓] 21. Write README
 
 Problems: 
 [✓] 1. Check if when an answer is submited and perYes and perNo are calculated the new ans is acknowledged or not
@@ -49,4 +50,5 @@ Improvements:
 [] 1. Use token(JSON web tokens) authentication instead of sessions and store data on the client-side instead of putting load on the server-side
 [] 2. Make ajax requests to /feedques, /myques and /myans together right when the user logs in and add a way to refresh the data
 [] 3. Add OAuth
-[] 4. Read this - https://engineering.linkedin.com/nodejs/blazing-fast-nodejs-10-performance-tips-linkedin-mobile#client-side 
+[] 4. Can add trialPage back later on
+[] 5. Read this - https://engineering.linkedin.com/nodejs/blazing-fast-nodejs-10-performance-tips-linkedin-mobile#client-side 
