@@ -19,16 +19,17 @@ To-Do:
 [X] 12. Complete guestPage.js - Write endpoints and frontend code with ajax calls
 [X] 13. Refactor and Modulate code in guestPage.js based on /userPage 
     *'Try the app' was redundant for a prototype 
-[] 14. Add code on the frontend to handle errors returned in ajax calls
-[] 15. Change the backend code for modals and errors(sending errors in ressponse), Complete the frontend code on every page - modals, dialog boxes, and finishing touches
-    *Check the status code of the responses and change them if necessary
-    *Change error messages sent in responses
-[] 16. Use async await on the backend and userPage.js 
-[] 17. Add error handling in the backend
-[] 18. Refactor code one last time, handle failed ajax requests
-[] 19. Remove redundant code and comments
-[] 20. Add KSSBro to the app and a section showing details of the app(About section)
-[✓] 21. Write README
+[-] 14. Handle Errors and Messages - Use a custom snackbar on the frontend
+    [-] 1. Add code on the frontend to handle errors and messages returned in ajax calls
+    [-] 2. Change the backend code for modals and errors(sending errors in ressponse), Complete the frontend code on every page - modals, dialog boxes, and finishing touches
+        *Check the status code of the responses and change them if necessary
+        *Change error messages sent in responses
+    [-] 3. Add error handling in the backend, handle failed ajax requests
+[] 15. Use async await on the backend and userPage.js 
+[] 16. Refactor code one last time
+[] 17. Remove redundant code and comments
+[] 18. Add KSSBro to the app and a section showing details of the app(About section)
+[✓] 19. Write README
 
 Problems: 
 [✓] 1. Check if when an answer is submited and perYes and perNo are calculated the new ans is acknowledged or not
