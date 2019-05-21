@@ -16,7 +16,7 @@ const contentContainer = document.getElementById("user-content-container");
 //function to add hover animations to the specified child element(btnChild) of button div
 function btnHoverAnimation(btnChild, transformVal, fontSizeVal) {
   //If the given element is a P tag
-  if ((btnChild.nodeName = "P")) {
+  if (btnChild.nodeName === "P") {
     //Checking if the device is a mobile by checking it's screen width
     if (window.screen.width <= 1024) {
       btnChild.style.fontSize = "48px";
@@ -35,6 +35,7 @@ yesBtns.forEach(function(curYesBtn) {
     //Calling btnHoverAnimation function for each child element of the button div
     //The function will only do something if the child element is a P tag
     yesBtnChildren.forEach(function(curChild) {
+      //console.log(curChild.nodeName);
       btnHoverAnimation(curChild, "rotate(0deg)", "60px");
     });
   });

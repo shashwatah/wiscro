@@ -30,7 +30,7 @@ const uiChange = {
   //Function to add hover animations to the specified child element(btnChild) of button div
   btnHoverAnimation: function(btnChild, transformVal, fontSizeVal) {
     //If the given element is a P tag
-    if ((btnChild.nodeName = "P")) {
+    if (btnChild.nodeName === "P") {
       //Checking if the device is a mobile by checking it's screen width
       if (window.screen.width <= 1024) {
         btnChild.style.fontSize = "48px";
