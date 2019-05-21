@@ -1,4 +1,5 @@
 <img alt="Wiscro" src="https://raw.githubusercontent.com/KSSBro/wiscro/master/public/images/wiscro_main.png" height="100">
+
 # Wiscro
 
 Wiscro is a web-app made with Node.js, Express, MongoDB, Mongoose, Handlebars and JQuery.
