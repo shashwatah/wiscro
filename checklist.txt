@@ -25,8 +25,10 @@ To-Do:
         *Check the status code of the responses and change them if necessary
         *Change error messages sent in responses
     [-] 3. Add error handling in the backend, handle failed ajax requests
-    [-] 4. Change error handling in the frontend of registerPage based on loginPage
-    [-] 5. Change login and register requests in loginPage and registerPage from form submits to ajax requests
+    [✓] 4. Change error handling in the frontend of registerPage based on loginPage
+    [✓] 5. Change login and register requests in loginPage and registerPage from form submits to ajax requests
+    [✓] 6. Refactor loginPage.js and registerPage.js
+    [] 7. Add comments to the code that was changed
 [] 15. Use async await on the backend and userPage.js 
 [] 16. Refactor code one last time
 [] 17. Remove redundant code and comments

@@ -1,5 +1,5 @@
 //Constant(s) for DOM Elements
-const loginForm = document.getElementById("login-form");
+const loginButton = document.getElementById("login-input-button");
 //Constant(s) for DOM Elements
 
 //function that compares the provided email with a regex expression
@@ -8,9 +8,7 @@ function validateEmail(email) {
   return re.test(email);
 }
 
-//Submit Event Listener on the form
-//If there is any error the submit event will not execute because of the preventDefault() method
-loginForm.addEventListener("submit", function(event) {
+loginButton.addEventListener("click", function(event) {
   let error = "";
   //Getting the value of the fields
   const email = document.getElementById("login-input-email").value;
@@ -37,5 +35,14 @@ loginForm.addEventListener("submit", function(event) {
       message: error
     };
     snackbarController(data);
+  } else {
+    $.ajax({
+      url: "/login",
+      method: "POST",
+      data: {
+        email: email,
+        password: pass
+      }
+    });
   }
 });

@@ -1,5 +1,5 @@
 //Constant(s) for DOM elements
-const registerForm = document.getElementById("register-form");
+const registerButton = document.getElementById("register-input-button");
 //Constant(s) for DOM elements
 
 //function that compares the provided email with a regex expression
@@ -8,9 +8,7 @@ function validateEmail(email) {
   return re.test(email);
 }
 
-//Submit Event Listener on the form
-//If there is any error the submit event will not execute because of the preventDefault() method
-registerForm.addEventListener("submit", function(event) {
+registerButton.addEventListener("click", function(event) {
   let error = "";
   //Getting the value of the fields
   const email = document.getElementById("register-input-email").value;
@@ -19,17 +17,17 @@ registerForm.addEventListener("submit", function(event) {
   //Checking if any field is empty
   if (!email || !pass || !username) {
     event.preventDefault();
-    error += "Fill in all the fields ";
+    error += "Fill in all the fields. ";
   } else {
     //Validating email by calling the validateEmail function
     if (!validateEmail(email)) {
       event.preventDefault();
-      error += "Invalid Email ";
+      error += "Invalid Email. ";
     }
     //Checking the length of the password
     if (pass.length < 8) {
       event.preventDefault();
-      error += "Password length less than 8 characters ";
+      error += "Password length less than 8 characters. ";
     }
   }
   if (error.length > 0) {
@@ -38,5 +36,15 @@ registerForm.addEventListener("submit", function(event) {
       message: error
     };
     snackbarController(data);
+  } else {
+    $.ajax({
+      url: "/register",
+      method: "POST",
+      data: {
+        username: username,
+        email: email,
+        password: pass
+      }
+    });
   }
 });

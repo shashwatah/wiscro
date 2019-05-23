@@ -133,29 +133,7 @@ body {
 
 .snackbar-visible {
   visibility: visible !important;
-  animation: fadein 0.5s, fadeout 0.5s 2.5s;
-}
-
-@keyframes fadein {
-  from {
-    bottom: -40px;
-    opacity: 0;
-  }
-  to {
-    bottom: 0px;
-    opacity: 1;
-  }
-}
-
-@keyframes fadeout {
-  from {
-    bottom: 0px;
-    opacity: 1;
-  }
-  to {
-    bottom: -40px;
-    opacity: 0;
-  }
+  animation: fadein 0.5s, fadeout 0.5s 4s;
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 1024px) {
@@ -242,5 +220,35 @@ body {
     border: 3px solid white;
     border-radius: 60px;
     font-size: 38px;
+  }
+
+  #snackbar {
+    height: 105px;
+  }
+
+  #snackbar p {
+    font-size: 34px;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: -40px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 0px;
+    opacity: 1;
+  }
+  to {
+    bottom: -40px;
+    opacity: 0;
   }
 }

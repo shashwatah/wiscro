@@ -33,13 +33,14 @@ function inputValidation(email, pass) {
   let error = "";
 
   if (!email || !pass) {
-    error += "No email or password entered.\t";
-  }
-  if (!validateEmail(email)) {
-    error += "Email input wrong.\t";
-  }
-  if (pass.length < 8) {
-    error += "Password length less than 8.";
+    error += "Fill in all the fields. ";
+  } else {
+    if (!validateEmail(email)) {
+      error += "Invalid Email. ";
+    }
+    if (pass.length < 8) {
+      error += "Password length less than 8 characters. ";
+    }
   }
 
   return error;
@@ -56,36 +57,51 @@ router.post("/register", sessionChecker, (req, res) => {
     username: username
   }).then(user => {
     if (user === null) {
-      const error = inputValidation(email, password);
-      if (error.length > 0) {
-        res
-          .status(400)
-          .send(`There were errors in the form submitted:- ${error}`);
-      } else {
-        //Forming a secondary ID for the user using the uuid module
-        let userID = "user-" + uuid();
-        //Creating the user object based on the User schema
-        let user = new User({
-          username: username,
-          email: email,
-          password: password,
-          userID: userID
-        });
-        user
-          .save()
-          .then(user => {
-            //Upon saving creating a session for the user and redirecting to /user endpoint
-            //A registered user is given 'verified' accType and a guest is given 'anon' accType
-            req.session.user = user;
-            req.session.accType = "verified";
-            res.redirect("/user");
-          })
-          .catch(error => {
-            res.status(500).send(error + "   Error with Registering");
+      User.findOne({
+        email: email
+      }).then(user => {
+        if (user === null) {
+          const error = inputValidation(email, password);
+          if (error.length > 0) {
+            res.status(400).render("registerPage.hbs", {
+              error: error
+            });
+          } else {
+            //Forming a secondary ID for the user using the uuid module
+            let userID = "user-" + uuid();
+            //Creating the user object based on the User schema
+            let user = new User({
+              username: username,
+              email: email,
+              password: password,
+              userID: userID
+            });
+            user
+              .save()
+              .then(user => {
+                //Upon saving creating a session for the user and redirecting to /user endpoint
+                //A registered user is given 'verified' accType and a guest is given 'anon' accType
+                req.session.user = user;
+                req.session.accType = "verified";
+                res.redirect("/user");
+              })
+              .catch(error => {
+                res.status(500).render("registerPage.hbs", {
+                  error:
+                    "We encountered an error while registering you, Please try again later."
+                });
+              });
+          }
+        } else {
+          res.status(400).render("registerPage.hbs", {
+            error: "The Email you entered is already registered to an account."
           });
-      }
+        }
+      });
     } else {
-      res.status(400).send("Username is in use already.");
+      res.status(400).render("registerPage.hbs", {
+        error: "The Username you entered is in use already."
+      });
     }
   });
 });
@@ -96,14 +112,18 @@ router.post("/login", (req, res) => {
   const password = req.body.password.trim();
   const error = inputValidation(email, password);
   if (error.length > 0) {
-    res.status(400).send(`There were errors in the form submitted:- ${error}`);
+    res.status(400).render("loginPage.hbs", {
+      error: error
+    });
   } else {
     //Finding the user with email as the parameter
     User.findOne({
       email: email
     }).then(user => {
       if (user === null) {
-        res.status(400).send("User not found");
+        res.status(400).render("loginPage.hbs", {
+          error: "User not found"
+        });
       } else {
         //Using the bycrypt to compare the password input with the hashed password stored on the database
         bcrypt.compare(password, user.password, (err, resolve) => {
@@ -114,7 +134,9 @@ router.post("/login", (req, res) => {
             req.session.accType = "verified";
             res.redirect("/user");
           } else {
-            res.status(400).send("Wrong Password!");
+            res.status(400).render("loginPage.hbs", {
+              error: "Wrong Password!"
+            });
           }
         });
       }
