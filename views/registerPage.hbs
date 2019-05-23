@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Register | Wiscro</title>
-	<link rel = "stylesheet" href = "../css/registerPage.css" type = "text/css"/>
-	<link rel = "shortcut icon" href = "../images/logo.png" type = "image/png"/>
+	<link rel="stylesheet" href="../css/registerPage.css" type="text/css" />
+	<link rel="shortcut icon" href="../images/logo.png" type="image/png" />
 </head>
+
 <body>
-	<div class = "page-container" id = "register-container"> 
-		<img class = "logo" id = "register-logo" src = "../images/wiscro.png"/>
-		<p id = "register-form-title">Create a new account</p>
-		<form class = "main-form" id = "register-form" method = "post" action = "/register">
-			<input class = "form-input" id = "register-input-username" type = "text" name = "username" placeholder = "Username"/>
-			<input class = "form-input" id = "register-input-email" type = "email" name = "email" placeholder = "Email"/>
-			<input class = "form-input" id = "register-input-pass" type = "password" name = "password" placeholder = "Password"/>
-			<input class = "form-button" id = "register-input-button" type = "submit" value = "Register"/>
-			<a class = "link" id = "new-acc-link" href = "/log"><input class = "form-button" id = "register-login-button" type = "button" value = "Login to your account"></a>
+	<div class="page-container" id="register-container">
+		<img class="logo" id="register-logo" src="../images/wiscro.png" />
+		<p id="register-form-title">Create a new account</p>
+		<form class="main-form" id="register-form" method="post" action="/register">
+			<input class="form-input" id="register-input-username" type="text" name="username" placeholder="Username" />
+			<input class="form-input" id="register-input-email" type="email" name="email" placeholder="Email" />
+			<input class="form-input" id="register-input-pass" type="password" name="password" placeholder="Password" />
+			<input class="form-button" id="register-input-button" type="submit" value="Register" />
+			<a class="link" id="new-acc-link" href="/log"><input class="form-button" id="register-login-button"
+					type="button" value="Login to your account"></a>
 		</form>
 	</div>
-
-	<script src = "../js/jquery.js"></script>
-	<script src = "../js/registerPage.js"></script>
+	<div class="page-element hidden" id="snackbar"></div>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/snackbarController.js"></script>
+	<script src="../js/registerPage.js"></script>
 </body>
+
 </html>

@@ -112,7 +112,7 @@ body {
 }*/
 
 #login-new-acc-button {
-  margin-top: 50px;
+  margin-top: 30px;
   height: 35px;
   width: 225px;
   background: white;
@@ -142,7 +142,6 @@ body {
   bottom: 0px;
   width: 100%;
   height: 40px;
-  background-color: #c5002f;
   text-align: center;
   visibility: hidden;
 }
@@ -180,12 +179,6 @@ body {
     bottom: -40px;
     opacity: 0;
   }
-}
-
-#snackbar-button {
-  position: absolute;
-  top: 0px;
-  left: 0px;
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 1024px) {

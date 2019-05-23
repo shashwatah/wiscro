@@ -32,15 +32,10 @@ loginForm.addEventListener("submit", function(event) {
     }
   }
   if (error.length > 0) {
-    snackbarController(error);
+    const data = {
+      type: "error",
+      message: error
+    };
+    snackbarController(data);
   }
 });
-
-function snackbarController(msg) {
-  var snackbar = document.getElementById("snackbar");
-  snackbar.innerHTML = `<p>${msg}</p>`;
-  snackbar.classList.add("snackbar-visible");
-  setTimeout(function() {
-    snackbar.classList.remove("snackbar-visible");
-  }, 3001);
-}
