@@ -133,7 +133,7 @@ body {
 
 .snackbar-visible {
   visibility: visible !important;
-  animation: fadein 0.5s, fadeout 0.5s 4s;
+  animation: fadein 0.5s, fadeout 0.5s 2s;
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 1024px) {
@@ -223,7 +223,7 @@ body {
   }
 
   #snackbar {
-    height: 105px;
+    height: 90px;
   }
 
   #snackbar p {

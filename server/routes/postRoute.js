@@ -48,10 +48,10 @@ router.post("/submitques", (req, res) => {
           });
           user.save();
         });
-        res.send(`Question Submitted. Time: ${question.timeCreated}`);
+        res.status(200).send("Question Submitted!");
       })
       .catch(err => {
-        res.send("Error with submitting questions" + err);
+        res.status(400).send("Your Question could not be submitted.");
       });
   } else {
     //If the variable and cookie don't exist

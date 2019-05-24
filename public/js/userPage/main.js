@@ -232,18 +232,37 @@ menuOverlayBtns.forEach(function(curMenuOvlBtn) {
 });
 
 askSubmitBtn.addEventListener("click", function(event) {
-  ////////////////////////////////////Ajax Request////////////////////////////////////
-  $.ajax({
-    url: "/submitques",
-    method: "POST",
-    data: {
-      question: askTextarea.value
-    }
-    //.done() does not work when the dataType is set to JSON
-  }).done(function(data) {
-    askTextarea.value = "";
-    alert(data);
-    console.log(data);
-  });
-  ////////////////////////////////////Ajax Request////////////////////////////////////
+  if (askTextarea.value) {
+    ////////////////////////////////////Ajax Request////////////////////////////////////
+    $.ajax({
+      url: "/submitques",
+      method: "POST",
+      data: {
+        question: askTextarea.value
+      }
+      //.done() does not work when the dataType is set to JSON
+    })
+      .done(function(message) {
+        askTextarea.value = "";
+        const data = {
+          type: "success",
+          message: message
+        };
+        snackbarController(data);
+      })
+      .fail(function(error) {
+        const data = {
+          type: "error",
+          message: error
+        };
+        snackbarController(data);
+      });
+    ////////////////////////////////////Ajax Request////////////////////////////////////
+  } else {
+    const data = {
+      type: "error",
+      message: "Question can't be empty!"
+    };
+    snackbarController(data);
+  }
 });

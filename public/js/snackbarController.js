@@ -20,5 +20,5 @@ function snackbarVisible() {
   snackbar.classList.add("snackbar-visible");
   setTimeout(function() {
     snackbar.classList.remove("snackbar-visible");
-  }, 4500);
+  }, 2500);
 }

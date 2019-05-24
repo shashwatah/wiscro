@@ -19,21 +19,23 @@ To-Do:
 [X] 12. Complete guestPage.js - Write endpoints and frontend code with ajax calls
 [X] 13. Refactor and Modulate code in guestPage.js based on /userPage 
     *'Try the app' was redundant for a prototype 
-[-] 14. Handle Errors and Messages - Use a custom snackbar on the frontend
-    [-] 1. Add code on the frontend to handle errors and messages returned in ajax calls
-    [-] 2. Change the backend code for modals and errors(sending errors in ressponse), Complete the frontend code on every page - modals, dialog boxes, and finishing touches
+[✓] 14. Handle Errors and Messages - Use a custom snackbar on the frontend
+    [✓] 1. Add code on the frontend to handle errors and messages returned in ajax calls
+    [✓] 2. Change the backend code for modals and errors(sending errors in ressponse), Complete the frontend code on every page - modals, dialog boxes, and finishing touches
         *Check the status code of the responses and change them if necessary
         *Change error messages sent in responses
-    [-] 3. Add error handling in the backend, handle failed ajax requests
+    [✓] 3. Add error handling in the backend, handle failed ajax requests
     [✓] 4. Change error handling in the frontend of registerPage based on loginPage
     [✓] 5. Change login and register requests in loginPage and registerPage from form submits to ajax requests
     [✓] 6. Refactor loginPage.js and registerPage.js
     [] 7. Add comments to the code that was changed
-[] 15. Use async await on the backend and userPage.js 
-[] 16. Refactor code one last time
-[] 17. Remove redundant code and comments
-[] 18. Add KSSBro to the app and a section showing details of the app(About section)
-[✓] 19. Write README
+[] 15. Display a message if there is no data to show on the pages of userPage
+[] 16. Use async await on the backend and userPage.js
+[] 17. Make 404 and Forbidden views0 
+[] 18. Refactor code one last time
+[] 19. Remove redundant code and comments
+[] 20. Add KSSBro to the app and a section showing details of the app(About section)
+[✓] 21. Write README
 
 Problems: 
 [✓] 1. Check if when an answer is submited and perYes and perNo are calculated the new ans is acknowledged or not
@@ -56,4 +58,5 @@ Improvements:
 [] 2. Make ajax requests to /feedques, /myques and /myans together right when the user logs in and add a way to refresh the data
 [] 3. Add OAuth
 [] 4. Can add trialPage back later on
+[] 5. Unlimited scrolling for answer page
 [] 5. Read this - https://engineering.linkedin.com/nodejs/blazing-fast-nodejs-10-performance-tips-linkedin-mobile#client-side 

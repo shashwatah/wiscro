@@ -9,13 +9,13 @@ const uiChange = {
       menuOverlay.classList.add("menu-overlay-inactive");
     }
   },
-  //Function to toggle the overlay menu on button click
-  toggleContainerHeight: function(sm, lr) {
+  //Function to change the container height
+  toggleContainerHeight: function(pixelsMob, pixelsCom) {
     //Checking if the device is a mobile if it's screen width is less than 1024
     if (window.screen.width < 1024) {
-      contentContainer.style.height = "calc(100% - " + sm + ")";
+      contentContainer.style.height = "calc(100% - " + pixelsMob + ")";
     } else {
-      contentContainer.style.height = "calc(100% - " + lr + ")";
+      contentContainer.style.height = "calc(100% - " + pixelsCom + ")";
     }
   },
   //Function to toggle the bottom bar on page change depending on the displayValue argument
@@ -24,7 +24,7 @@ const uiChange = {
     if (displayValue === "none") {
       this.toggleContainerHeight("175px", "85px");
     } else {
-      this.toggleContainerHeight("350px", "170px");
+      this.toggleContainerHeight("300px", "150px");
     }
   },
   //Function to add hover animations to the specified child element(btnChild) of button div
