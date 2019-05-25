@@ -44,7 +44,7 @@ Problems:
     - Look into Date Class and now() method and Manipulation of the time returned by the function
 [✓] 3. When questions are submitted by a user the question is not added to the questions list of the user
 [] 4. What if two people submit an answer for the same question at the same time.
-
+[] 5. The Dup key bug  
 
 [✓]For To-Do item 2: In userPage.hbs change the classnames 'user-question-yes' and 'user-question-no' or add a new 
 classname 'user-auestion-ans-button' to all the buttons then create an array of all the buttons, the specifics 
