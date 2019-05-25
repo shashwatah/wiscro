@@ -86,10 +86,13 @@ router.post("/register", sessionChecker, (req, res) => {
                 res.redirect("/user");
               })
               .catch(error => {
-                res.status(500).render("registerPage.hbs", {
-                  error:
-                    "We encountered an error while registering you, Please try again later."
-                });
+                if (error) {
+                  console.log(error);
+                  res.status(500).render("registerPage.hbs", {
+                    error:
+                      "We encountered an error while registering you, Please try again later."
+                  });
+                }
               });
           }
         } else {

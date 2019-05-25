@@ -64,7 +64,7 @@ router.get("/feedques", (req, res) => {
       }
     );
   } else {
-    res.status(400).send("Forbidden. Unauthorized access to /feedques");
+    res.status(401).send("Forbidden. Unauthorized access to /feedques");
   }
 });
 
@@ -80,14 +80,11 @@ router.get("/myques", (req, res) => {
         active: false
       },
       (error, questions) => {
-        if (error) {
-          res.status(500).send("Could not find questions.");
-        } else {
-          const questionsReversed = questions.reverse();
-          let questionStrings = new Array();
-          for (var current of questionsReversed) {
-            questionStrings.push({
-              string: `<div class="myques">
+        const questionsReversed = questions.reverse();
+        let questionStrings = new Array();
+        for (var current of questionsReversed) {
+          questionStrings.push({
+            string: `<div class="myques">
             <div class="myques-ques">
               <p>${current.questionText}</p>
             </div>
@@ -95,24 +92,23 @@ router.get("/myques", (req, res) => {
               <div class="myques-ans-yes" style="width: ${
                 current.perYes
               }%; opacity: ${current.perYes > current.perNo ? 1 : 0.3}">${
-                current.perYes < 8 ? `` : `Yes: ${current.perYes}%`
-              }</div>
+              current.perYes < 8 ? `` : `Yes: ${current.perYes}%`
+            }</div>
               <div class="myques-ans-no" style="width: ${
                 current.perNo
               }%; opacity: ${current.perNo > current.perYes ? 1 : 0.3}">${
-                current.perNo < 8 ? `` : `No: ${current.perNo}%`
-              }</div>
+              current.perNo < 8 ? `` : `No: ${current.perNo}%`
+            }</div>
             </div>
           </div>`
-            });
-          }
-          res.status(200).send(questionStrings);
+          });
         }
+        res.status(200).send(questionStrings);
       }
     );
   } else {
     //If not send a Forbidden message with status code 400
-    res.status(400).send("Forbidden. Unauthorized access to /myques");
+    res.status(401).send("Forbidden. Unauthorized access to /myques");
   }
 });
 
@@ -175,7 +171,7 @@ router.get("/myans", (req, res) => {
         res.status(500).send("Could not find user");
       });
   } else {
-    res.status(400).send("Forbidden. Unauthorized access to /myans");
+    res.status(401).send("Forbidden. Unauthorized access to /myans");
   }
 });
 

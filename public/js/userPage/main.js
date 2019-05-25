@@ -4,126 +4,131 @@ $.ajax({
   url: "/feedques",
   method: "GET"
 }).done(function(data) {
-  data.forEach(function(current) {
-    console.log(current);
-    //Adding questions on the page, important data is stored in data- attributes of the formed elements
-    ansPage.innerHTML += current.string;
-  });
-  //Don't remove ansBtns variable from here.
-  //Moving it from main.js to elements.js caused a bug
-  const ansBtns = Array.from(
-    document.getElementsByClassName("user-question-ans")
-  );
-  ansBtns.forEach(function(curAnsBtn) {
-    const ans = curAnsBtn.getAttribute("data-anstype");
-    //These values will be used in event listeners to change the YES and NO buttons accordingly
-    const values = {
-      mouseOverRotate: "rotate(0deg)",
-      mouseOverSize: "60px",
-      mouseOutRotate: ans === "YES" ? "rotate(-90deg)" : "rotate(90deg)",
-      mouseOutSize: "25px"
-    };
-    const curAnsBtnChildren = curAnsBtn.childNodes;
-    //Hover events for Answer buttons on questions
-    curAnsBtn.addEventListener("mouseover", function(event) {
-      curAnsBtnChildren.forEach(function(curChild) {
-        uiChange.btnHoverAnimation(
-          curChild,
-          values.mouseOverRotate,
-          values.mouseOverSize
-        );
-      });
+  console.log(data);
+  if (data.length === 0) {
+    //Display a message
+    console.log("No Question were found.");
+  } else {
+    data.forEach(function(current) {
+      //Adding questions on the page, important data is stored in data- attributes of the formed elements
+      ansPage.innerHTML += current.string;
     });
-    curAnsBtn.addEventListener("mouseout", function(event) {
-      curAnsBtnChildren.forEach(function(curChild) {
-        if (curAnsBtn.style.width !== "100%") {
+    //Don't remove ansBtns variable from here.
+    //ansBtns variable can only be declared after the questions have been added to the DOM
+    const ansBtns = Array.from(
+      document.getElementsByClassName("user-question-ans")
+    );
+    ansBtns.forEach(function(curAnsBtn) {
+      const ans = curAnsBtn.getAttribute("data-anstype");
+      //These values will be used in event listeners to change the YES and NO buttons accordingly
+      const values = {
+        mouseOverRotate: "rotate(0deg)",
+        mouseOverSize: "60px",
+        mouseOutRotate: ans === "YES" ? "rotate(-90deg)" : "rotate(90deg)",
+        mouseOutSize: "25px"
+      };
+      const curAnsBtnChildren = curAnsBtn.childNodes;
+      //Hover events for Answer buttons on questions
+      curAnsBtn.addEventListener("mouseover", function(event) {
+        curAnsBtnChildren.forEach(function(curChild) {
           uiChange.btnHoverAnimation(
             curChild,
-            values.mouseOutRotate,
-            values.mouseOutSize
+            values.mouseOverRotate,
+            values.mouseOverSize
           );
-        }
-      });
-    });
-    curAnsBtn.addEventListener("click", function(event) {
-      ////////////////////////////////////Ajax Request////////////////////////////////////
-      $.ajax({
-        url: "/submitans",
-        method: "POST",
-        data: {
-          questionID: curAnsBtn.parentNode.getAttribute("data-questionID"),
-          answer: ans
-        }
-      }).done(function(data) {
-        console.log(data);
-      });
-      ////////////////////////////////////Ajax Request////////////////////////////////////
-      //The code below can be refactored
-      //Unique values for the YES and NO buttons can be added in the values object to implement DRY
-      if (ans === "YES") {
-        //Deleting every element in the question div that is not the YES button that was clicked
-        //This is part of the animation that occurs on answer click
-        curAnsBtn.parentNode.childNodes.forEach(function(curNode) {
-          if (curNode.nodeName !== "#text") {
-            if (!curNode.classList.contains("user-question-yes")) {
-              curNode.style.display = "none";
-            }
-          }
         });
-        //Changing the YES button accordingly
+      });
+      curAnsBtn.addEventListener("mouseout", function(event) {
         curAnsBtnChildren.forEach(function(curChild) {
-          if ((curChild.nodeName = "P")) {
-            if (window.screen.width <= 1024) {
-              curChild.style.transform = "rotate(0deg)";
-              curChild.style.fontSize = "150px";
-              curChild.style.marginTop = "440px";
-            }
+          if (curAnsBtn.style.width !== "100%") {
+            uiChange.btnHoverAnimation(
+              curChild,
+              values.mouseOutRotate,
+              values.mouseOutSize
+            );
           }
         });
-        curAnsBtn.style.width = "100%";
-        curAnsBtn.parentNode.style.transition = "1s linear";
-        curAnsBtn.parentNode.style.opacity = "0";
+      });
+      curAnsBtn.addEventListener("click", function(event) {
+        ////////////////////////////////////Ajax Request////////////////////////////////////
+        $.ajax({
+          url: "/submitans",
+          method: "POST",
+          data: {
+            questionID: curAnsBtn.parentNode.getAttribute("data-questionID"),
+            answer: ans
+          }
+        }).done(function(data) {
+          console.log(data);
+        });
+        ////////////////////////////////////Ajax Request////////////////////////////////////
+        //The code below can be refactored
+        //Unique values for the YES and NO buttons can be added in the values object to implement DRY
+        if (ans === "YES") {
+          //Deleting every element in the question div that is not the YES button that was clicked
+          //This is part of the animation that occurs on answer click
+          curAnsBtn.parentNode.childNodes.forEach(function(curNode) {
+            if (curNode.nodeName !== "#text") {
+              if (!curNode.classList.contains("user-question-yes")) {
+                curNode.style.display = "none";
+              }
+            }
+          });
+          //Changing the YES button accordingly
+          curAnsBtnChildren.forEach(function(curChild) {
+            if ((curChild.nodeName = "P")) {
+              if (window.screen.width <= 1024) {
+                curChild.style.transform = "rotate(0deg)";
+                curChild.style.fontSize = "150px";
+                curChild.style.marginTop = "440px";
+              }
+            }
+          });
+          curAnsBtn.style.width = "100%";
+          curAnsBtn.parentNode.style.transition = "1s linear";
+          curAnsBtn.parentNode.style.opacity = "0";
 
-        //Removing the question div after 1 second of an answer button being clicked
-        setTimeout(function() {
-          curAnsBtn.parentNode.parentNode.removeChild(curAnsBtn.parentNode);
-        }, 1000);
-      } else if (ans === "NO") {
-        /*Adding a flexDirection of row-reverse because a No button is on the right side of the 
+          //Removing the question div after 1 second of an answer button being clicked
+          setTimeout(function() {
+            curAnsBtn.parentNode.parentNode.removeChild(curAnsBtn.parentNode);
+          }, 1000);
+        } else if (ans === "NO") {
+          /*Adding a flexDirection of row-reverse because a No button is on the right side of the 
         question div and it needs to expand the right way(towards left) on being clicked*/
-        curAnsBtn.parentNode.style.flexDirection = "row-reverse";
-        //Removing every element from the question div that is not the NO button that was clicked
-        //This is part of the animation that occurs on answer click
-        curAnsBtn.parentNode.childNodes.forEach(function(curNode) {
-          if (curNode.nodeName !== "#text") {
-            if (!curNode.classList.contains("user-question-no")) {
-              curNode.style.display = "none";
+          curAnsBtn.parentNode.style.flexDirection = "row-reverse";
+          //Removing every element from the question div that is not the NO button that was clicked
+          //This is part of the animation that occurs on answer click
+          curAnsBtn.parentNode.childNodes.forEach(function(curNode) {
+            if (curNode.nodeName !== "#text") {
+              if (!curNode.classList.contains("user-question-no")) {
+                curNode.style.display = "none";
+              }
             }
-          }
-        });
-        //Changing the NO button accordingly
-        curAnsBtnChildren.forEach(function(curChild) {
-          if ((curChild.nodeName = "P")) {
-            curChild.style.transform = "rotate(0deg)";
-            if (window.screen.width <= 1024) {
-              curChild.style.fontSize = "150px";
-              curChild.style.marginTop = "440px";
-            } else {
-              curChild.style.fontSize = "60px";
+          });
+          //Changing the NO button accordingly
+          curAnsBtnChildren.forEach(function(curChild) {
+            if ((curChild.nodeName = "P")) {
+              curChild.style.transform = "rotate(0deg)";
+              if (window.screen.width <= 1024) {
+                curChild.style.fontSize = "150px";
+                curChild.style.marginTop = "440px";
+              } else {
+                curChild.style.fontSize = "60px";
+              }
             }
-          }
-        });
-        curAnsBtn.style.width = "100%";
-        curAnsBtn.parentNode.style.transition = "1s linear";
-        curAnsBtn.parentNode.style.opacity = "0";
+          });
+          curAnsBtn.style.width = "100%";
+          curAnsBtn.parentNode.style.transition = "1s linear";
+          curAnsBtn.parentNode.style.opacity = "0";
 
-        //Removing the question div after 1 second of an answer button being clicked
-        setTimeout(function() {
-          curAnsBtn.parentNode.parentNode.removeChild(curAnsBtn.parentNode);
-        }, 1000);
-      }
+          //Removing the question div after 1 second of an answer button being clicked
+          setTimeout(function() {
+            curAnsBtn.parentNode.parentNode.removeChild(curAnsBtn.parentNode);
+          }, 1000);
+        }
+      });
     });
-  });
+  }
 });
 ////////////////////////////////////Ajax Request////////////////////////////////////
 
@@ -180,11 +185,16 @@ menuOverlayBtns.forEach(function(curMenuOvlBtn) {
           dataType: "JSON"
         }).done(function(data) {
           console.log(data);
-          //Adding questions to the page
-          myquesPage.innerHTML = "";
-          data.forEach(function(current) {
-            myquesPage.innerHTML += current.string;
-          });
+          if (data.length === 0) {
+            //Display a message
+            console.log("No Questions were found.");
+          } else {
+            //Adding questions to the page
+            myquesPage.innerHTML = "";
+            data.forEach(function(current) {
+              myquesPage.innerHTML += current.string;
+            });
+          }
         });
         ////////////////////////////////////Ajax Request////////////////////////////////////
       } else if (curMenuOvlBtn.getAttribute("data-fetchurl") === "myans") {
@@ -195,10 +205,16 @@ menuOverlayBtns.forEach(function(curMenuOvlBtn) {
         })
           .done(function(data) {
             console.log(data);
-            myansPage.innerHTML = "";
-            data.forEach(function(current) {
-              myansPage.innerHTML += current.string;
-            });
+            if (data.length === 0) {
+              //Display a message
+              console.log("No Answers were found.");
+            } else {
+              myansPage.innerHTML = "";
+              //Adding answers to the page
+              data.forEach(function(current) {
+                myansPage.innerHTML += current.string;
+              });
+            }
           })
           .fail(function(error) {
             console.log(error);
@@ -243,6 +259,7 @@ askSubmitBtn.addEventListener("click", function(event) {
       //.done() does not work when the dataType is set to JSON
     })
       .done(function(message) {
+        console.log(message);
         askTextarea.value = "";
         const data = {
           type: "success",
@@ -251,6 +268,7 @@ askSubmitBtn.addEventListener("click", function(event) {
         snackbarController(data);
       })
       .fail(function(error) {
+        console.log(error);
         const data = {
           type: "error",
           message: error

@@ -19,43 +19,47 @@ const { sessionChecker } = require("./../middleware/sessionChecker.js");
 router.post("/submitques", (req, res) => {
   //Checking if the session variable user and cookie exist
   if (req.session.user && req.cookies.user_sid) {
-    //Creating a secondary ID for the question using the uuid module
-    let questionID = "question-" + uuid();
-    //Creating the question object based in teh Question schema
-    let question = new Question({
-      creator: {
-        ID: req.session.user.userID,
-        username: req.session.user.username,
-        email: req.session.user.email
-      },
-      questionID: questionID,
-      questionText: req.body.question,
-      active: true,
-      timeCreated: new Date().getTime()
-    });
-    //Saving question
-    question
-      .save()
-      .then(question => {
-        //Finding the user that submitted the answer based on the '_id' of the session variable 'user'
-        User.findOne({
+    if (req.body.question) {
+      //Creating a secondary ID for the question using the uuid module
+      let questionID = "question-" + uuid();
+      //Creating the question object based in teh Question schema
+      let question = new Question({
+        creator: {
+          ID: req.session.user.userID,
           username: req.session.user.username,
           email: req.session.user.email
-        }).then(user => {
-          //Adding the question to the list of questions of the user
-          user.questions.push({
-            questionID: question.questionID
-          });
-          user.save();
-        });
-        res.status(200).send("Question Submitted!");
-      })
-      .catch(err => {
-        res.status(400).send("Your Question could not be submitted.");
+        },
+        questionID: questionID,
+        questionText: req.body.question,
+        active: true,
+        timeCreated: new Date().getTime()
       });
+      //Saving question
+      question
+        .save()
+        .then(question => {
+          //Finding the user that submitted the answer based on the '_id' of the session variable 'user'
+          User.findOne({
+            username: req.session.user.username,
+            email: req.session.user.email
+          }).then(user => {
+            //Adding the question to the list of questions of the user
+            user.questions.push({
+              questionID: question.questionID
+            });
+            user.save();
+          });
+          res.status(200).send("Question Submitted!");
+        })
+        .catch(err => {
+          res.status(500).send("Your Question could not be submitted.");
+        });
+    } else {
+      res.status(400).send("Question can't be empty");
+    }
   } else {
     //If the variable and cookie don't exist
-    res.status(400).send("Forbidden. Unauthorized access to /submitques.");
+    res.status(401).send("Forbidden. Unauthorized access to /submitques.");
   }
 });
 
@@ -99,7 +103,7 @@ router.post("/submitans", (req, res) => {
       });
     });
   } else {
-    res.status(400).send("Forbidden. Unauthorized access to /submitans");
+    res.status(401).send("Forbidden. Unauthorized access to /submitans");
   }
 });
 
