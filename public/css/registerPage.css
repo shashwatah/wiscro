@@ -223,11 +223,11 @@ body {
   }
 
   #snackbar {
-    height: 90px;
+    height: 110px;
   }
 
   #snackbar p {
-    font-size: 34px;
+    font-size: 40px;
   }
 }
 

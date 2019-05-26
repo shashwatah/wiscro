@@ -30,12 +30,13 @@ To-Do:
     [✓] 6. Refactor loginPage.js and registerPage.js
     [✓] 7. Add comments to the code that was changed
 [-] 15. Display a message if there is no data to show on the pages of userPage
-[] 16. Use async await on the backend and userPage.js
+[✓] 16. Use async await on the backend and userPage.js
 [] 17. Make 404 and Forbidden views
-[] 18. Refactor code one last time
+[✓] 18. Refactor code one last time
 [] 19. Remove redundant code and comments
 [] 20. Add KSSBro to the app and a section showing details of the app(About section)
 [✓] 21. Write README
+[] 22. Deploy on Heroku
 
 Problems: 
 [✓] 1. Check if when an answer is submited and perYes and perNo are calculated the new ans is acknowledged or not

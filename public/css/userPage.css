@@ -36,6 +36,22 @@ body {
   display: none;
 }
 
+.info-text {
+  font-size: 18px;
+}
+
+.reload-btn {
+  background-color: #019587;
+  color: white;
+  border: 0px;
+  font-size: 18px;
+  font-family: "Varela Round";
+  width: 100px;
+  height: 30px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
 #user-topbar {
   position: fixed;
   left: 0px;
@@ -529,6 +545,22 @@ body {
     padding: 0px;
   }
 
+  .info-text {
+    font-size: 40px;
+  }
+
+  .reload-btn {
+    background-color: #019587;
+    color: white;
+    border: 0px;
+    font-size: 32px;
+    font-family: "Varela Round";
+    width: 180px;
+    height: 55px;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+
   #user-topbar {
     height: 150px;
     box-shadow: 0px 0px 150px black;
@@ -667,11 +699,11 @@ body {
   }
 
   #snackbar {
-    height: 90px;
+    height: 110px;
   }
 
   #snackbar p {
-    font-size: 34px;
+    font-size: 40px;
   }
 
   #user-menu-overlay #user-menu-overlay-topbar {
@@ -764,7 +796,6 @@ body {
     line-height: 90px;
   }
 }
-
 
 @keyframes fadein {
   from {

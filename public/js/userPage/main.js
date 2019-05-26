@@ -7,8 +7,12 @@ $.ajax({
   console.log(data);
   if (data.length === 0) {
     //Display a message
-    console.log("No Question were found.");
+    console.log("No Questions were found. Sorry!");
+    ansPage.innerHtml = "";
+    ansPage.innerHTML +=
+      "<br/><p class='info-text'>No Questions were found.</p><a href='javascript:window.location.reload(true)'><button class='reload-btn'>Reload</button></a>";
   } else {
+    ansPage.innerHTML = "";
     data.forEach(function(current) {
       //Adding questions on the page, important data is stored in data- attributes of the formed elements
       ansPage.innerHTML += current.string;
@@ -188,6 +192,9 @@ menuOverlayBtns.forEach(function(curMenuOvlBtn) {
           if (data.length === 0) {
             //Display a message
             console.log("No Questions were found.");
+            myquesPage.innerHTML = "";
+            myquesPage.innerHTML +=
+              "<br/><p class='info-text'>You have not asked any questions yet!</p>";
           } else {
             //Adding questions to the page
             myquesPage.innerHTML = "";
@@ -208,6 +215,9 @@ menuOverlayBtns.forEach(function(curMenuOvlBtn) {
             if (data.length === 0) {
               //Display a message
               console.log("No Answers were found.");
+              myansPage.innerHTML = "";
+              myansPage.innerHTML +=
+                "<br/><p class='info-text'>You have not answered any questions yet!</p>";
             } else {
               myansPage.innerHTML = "";
               //Adding answers to the page
