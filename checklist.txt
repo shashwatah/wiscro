@@ -29,14 +29,16 @@ To-Do:
     [✓] 5. Change login and register requests in loginPage and registerPage from form submits to ajax requests
     [✓] 6. Refactor loginPage.js and registerPage.js
     [✓] 7. Add comments to the code that was changed
-[-] 15. Display a message if there is no data to show on the pages of userPage
+[✓] 15. Display a message if there is no data to show on the pages of userPage
 [✓] 16. Use async await on the backend and userPage.js
-[] 17. Make 404 and Forbidden views
+[✓] 17. Make 404 and Forbidden views
 [✓] 18. Refactor code one last time
-[] 19. Remove redundant code and comments
-[] 20. Add KSSBro to the app and a section showing details of the app(About section)
-[✓] 21. Write README
-[] 22. Deploy on Heroku
+[] 19. Solve Problem 4
+[] 20. Remove redundant code and comments
+[] 21. Add KSSBro to the app and a section showing details of the app(About section)
+[] 22. Change the fav icon
+[✓] 23. Write README
+[] 24. Deploy on Heroku
 
 Problems: 
 [✓] 1. Check if when an answer is submited and perYes and perNo are calculated the new ans is acknowledged or not
@@ -44,8 +46,9 @@ Problems:
     - Check node-schedule nom module for this task or setInterval js function
     - Look into Date Class and now() method and Manipulation of the time returned by the function
 [✓] 3. When questions are submitted by a user the question is not added to the questions list of the user
-[] 4. What if two people submit an answer for the same question at the same time.
-[] 5. The Dup key bug  
+[] 4. The Dup key bug 
+[] 5. What if two people submit an answer for the same question at the same time.
+ 
 
 [✓]For To-Do item 2: In userPage.hbs change the classnames 'user-question-yes' and 'user-question-no' or add a new 
 classname 'user-auestion-ans-button' to all the buttons then create an array of all the buttons, the specifics 

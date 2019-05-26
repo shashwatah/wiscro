@@ -82,9 +82,7 @@ server.use(getRoute.router);
 
 // 404 Page Not Found
 server.use(function(req, res, next) {
-  res.status(404).render("pagenotfound.hbs", {
-    data: "Sorry, page not found"
-  });
+  res.status(404).render("404.hbs");
 });
 // 404 Page Not Found
 

@@ -1,0 +1,30 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  background: #111111;
+  font-family: sans-serif;
+}
+
+#notfound-logo {
+  height: 40px;
+  width: 125px;
+  margin-top: 70px;
+  margin-bottom: 30px;
+}
+
+#notfound-title {
+  color: #1190cb;
+  font-size: 200px;
+  margin-top: 0px;
+  font-style: bold;
+  padding: 0px;
+}
+
+#notfound-subtitle {
+  position: relative;
+  padding: 0px;
+  margin-top: -220px;
+  color: #1190cb;
+  font-size: 34px;
+}
