@@ -86,7 +86,7 @@ server.use(function(req, res, next) {
 });
 // 404 Page Not Found
 
-setInterval(updateQuestionStatus, 1000, Question);
+setInterval(updateQuestionStatus, 60000, Question);
 
 server.listen(port, () => {
   console.log(`App running on ${port}`);

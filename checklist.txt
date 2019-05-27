@@ -42,6 +42,7 @@ To-Do:
 [] 22. Change the fav icon
 [✓] 23. Write README
 [] 24. Deploy on Heroku
+[] 25. Make admin page
 
 Problems: 
 [✓] 1. Check if when an answer is submited and perYes and perNo are calculated the new ans is acknowledged or not
