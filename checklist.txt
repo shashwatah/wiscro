@@ -37,7 +37,7 @@ To-Do:
 [✓] 18. Refactor code one last time
 [✓] 19. Solve Problem 4
     *The problem was on the frontend
-[] 20. Remove redundant code and comments
+[✓] 20. Remove redundant code and comments
 [] 21. Add KSSBro to the app and a section showing details of the app(About section)
 [] 22. Change the fav icon
 [✓] 23. Write README
