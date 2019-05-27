@@ -26,14 +26,16 @@ To-Do:
         *Change error messages sent in responses
     [✓] 3. Add error handling in the backend, handle failed ajax requests
     [✓] 4. Change error handling in the frontend of registerPage based on loginPage
-    [✓] 5. Change login and register requests in loginPage and registerPage from form submits to ajax requests
+    [X] 5. Change login and register requests in loginPage and registerPage from form submits to ajax requests
+        *Can't do that since ajax requests don't allow the server to redirect the client to a different page which in this case would be /user
     [✓] 6. Refactor loginPage.js and registerPage.js
     [✓] 7. Add comments to the code that was changed
 [✓] 15. Display a message if there is no data to show on the pages of userPage
 [✓] 16. Use async await on the backend and userPage.js
 [✓] 17. Make 404 and Forbidden views
 [✓] 18. Refactor code one last time
-[] 19. Solve Problem 4
+[✓] 19. Solve Problem 4
+    *The problem was on the frontend
 [] 20. Remove redundant code and comments
 [] 21. Add KSSBro to the app and a section showing details of the app(About section)
 [] 22. Change the fav icon
@@ -46,7 +48,7 @@ Problems:
     - Check node-schedule nom module for this task or setInterval js function
     - Look into Date Class and now() method and Manipulation of the time returned by the function
 [✓] 3. When questions are submitted by a user the question is not added to the questions list of the user
-[] 4. The Dup key bug 
+[✓] 4. The Dup key bug 
 [] 5. What if two people submit an answer for the same question at the same time.
  
 

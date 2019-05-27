@@ -1,5 +1,5 @@
 //Constant(s) for DOM Elements
-const loginButton = document.getElementById("login-input-button");
+const loginForm = document.getElementById("login-form");
 //Constant(s) for DOM Elements
 
 //function that compares the provided email with a regex expression
@@ -8,7 +8,17 @@ function validateEmail(email) {
   return re.test(email);
 }
 
-loginButton.addEventListener("click", function(event) {
+loginForm.addEventListener("submit", function(event) {
+  /* 
+  The dup key error-  
+  the login and register forms had submit buttons but were still using ajax requests to send the data
+  as a result the request was being sent twice which caused the dup key error on the second hit,
+  it was fixed by using event.preventDefault() and event.stopImmediatePropogation() right in the 
+  beginning.
+  That only stopped the dup key error but after sending an ajax request the server can't redirect 
+  the client to a different page which in this case is /user so the login and register forms now use 
+  form submits instead of ajax requests.
+  */
   let error = "";
   //Getting the value of the fields
   const email = document.getElementById("login-input-email").value;
@@ -30,19 +40,14 @@ loginButton.addEventListener("click", function(event) {
     }
   }
   if (error.length > 0) {
+    event.preventDefault();
     const data = {
       type: "error",
       message: error
     };
     snackbarController(data);
+    return false;
   } else {
-    $.ajax({
-      url: "/login",
-      method: "POST",
-      data: {
-        email: email,
-        password: pass
-      }
-    });
+    return true;
   }
 });

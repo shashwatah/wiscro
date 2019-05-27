@@ -83,16 +83,14 @@ router.post("/register", sessionChecker, (req, res) => {
                 //A registered user is given 'verified' accType and a guest is given 'anon' accType
                 req.session.user = user;
                 req.session.accType = "verified";
-                res.redirect("/user");
+                res.status(300).redirect("/user");
               })
-              .catch(error => {
-                if (error) {
-                  console.log(error);
-                  res.status(500).render("registerPage.hbs", {
-                    error:
-                      "We encountered an error while registering you, Please try again later."
-                  });
-                }
+              .catch(err => {
+                console.log(err);
+                res.status(500).render("registerPage.hbs", {
+                  error:
+                    "We encountered an error while registering you, Please try again later."
+                });
               });
           }
         } else {
@@ -125,7 +123,7 @@ router.post("/login", (req, res) => {
     }).then(user => {
       if (user === null) {
         res.status(400).render("loginPage.hbs", {
-          error: "User not found"
+          error: "User not found."
         });
       } else {
         //Using the bycrypt to compare the password input with the hashed password stored on the database
