@@ -165,17 +165,3 @@ router.get("/logout", (req, res) => {
 module.exports = {
   router
 };
-
-/*
-if (!user) {
-  //If no user is found then error message is sent
-  //This will be changed later on along with some UI improvements(message modals)
-  res.status(400).send("User not found"); //Need to do something about this error
-} else {
-  Line 127 to 140
-}
-*/
-
-// .catch(err => {
-//   res.status(400).send("User not found");
-// });

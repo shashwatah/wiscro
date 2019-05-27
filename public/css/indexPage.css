@@ -6,7 +6,6 @@ body {
   text-align: center;
   background: #111111;
   font-family: "Varela Round", sans-serif;
-  /*background: linear-gradient(to right, white, #3FB0AC);*/
 }
 
 *:focus {
@@ -40,13 +39,6 @@ body {
   font-weight: bold;
   font-size: 15px;
 }
-/*#index-container #subtitle {
-	color: white;
-	font-family: 'Pacifico', cursive, sans-serif;
-	font-size: 15px;
-	margin-top: -12px;
-}
-*/
 
 #index-container #index-button-container {
   margin: auto;
@@ -67,13 +59,6 @@ body {
   font-weight: bold;
   font-family: "Varela Round", sans-serif;
 }
-
-/*#index-container #index-button-container .button:hover; {
-	background: black;
-	border: 1px solid black;
-	color: white;
-	transition: 0.2s linear;
-}*/
 
 #index-container #index-button-container #index-login-button {
   background: none;
