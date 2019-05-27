@@ -28,6 +28,7 @@ To-Do:
     [✓] 4. Change error handling in the frontend of registerPage based on loginPage
     [X] 5. Change login and register requests in loginPage and registerPage from form submits to ajax requests
         *Can't do that since ajax requests don't allow the server to redirect the client to a different page which in this case would be /user
+        *Changed this for the dup key problem
     [✓] 6. Refactor loginPage.js and registerPage.js
     [✓] 7. Add comments to the code that was changed
 [✓] 15. Display a message if there is no data to show on the pages of userPage
