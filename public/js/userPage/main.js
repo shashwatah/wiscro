@@ -194,7 +194,7 @@ menuOverlayBtns.forEach(function(curMenuOvlBtn) {
             console.log("No Questions were found.");
             myquesPage.innerHTML = "";
             myquesPage.innerHTML +=
-              "<br/><p class='info-text'>You have not asked any questions yet!</p>";
+              "<br/><p class='info-text'>You have not asked any questions yet!<br/>Results for asked questions appear here after 24hrs.</p>";
           } else {
             //Adding questions to the page
             myquesPage.innerHTML = "";

@@ -28,3 +28,21 @@ body {
   color: #1190cb;
   font-size: 34px;
 }
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 1024px) {
+  #notfound-logo {
+    height: 110px;
+    width: 350px;
+    margin-top: 300px;
+    margin-bottom: 70px;
+  }
+
+  #notfound-title {
+    font-size: 400px;
+  }
+
+  #notfound-subtitle {
+    margin-top: -440px;
+    font-size: 68px;
+  }
+}
