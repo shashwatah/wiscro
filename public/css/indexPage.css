@@ -72,6 +72,11 @@ body {
   color: white;
 }
 
+#index-container #index-kssbro-logo {
+  height: 30px;
+  width: 96px;
+}
+
 @media only screen and (min-device-width: 320px) and (max-device-width: 1024px) {
   #index-container {
     position: relative;
@@ -117,5 +122,11 @@ body {
   #index-container #index-button-container #index-register-button {
     background: #1190cb;
     border: 3px solid #1190cb;
+  }
+
+  #index-container #index-kssbro-logo {
+    height: 60px;
+    width: 192px;
+    margin-top: 200px;
   }
 }
