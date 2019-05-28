@@ -31,7 +31,7 @@ router.get("/feedques", (req, res) => {
         User.findOne({
           email: req.session.user.email
         })
-          .then(async user => {
+          .then(user => {
             //A list of all the questions answered by the user
             userQuestionsAnswered = user.answers;
             //Creating a final list of all the questions
