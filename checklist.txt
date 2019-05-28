@@ -38,7 +38,7 @@ To-Do:
 [✓] 19. Solve Problem 4
     *The problem was on the frontend
 [✓] 20. Remove redundant code and comments
-[] 21. Add KSSBro to the app and a section showing details of the app(About section)
+[✓] 21. Add KSSBro to the app 
 [] 22. Change the fav icon
 [✓] 23. Write README
 [] 24. Deploy on Heroku
@@ -67,4 +67,5 @@ Improvements:
 [] 3. Add OAuth
 [] 4. Can add trialPage back later on
 [] 5. Unlimited scrolling for answer page
-[] 5. Read this - https://engineering.linkedin.com/nodejs/blazing-fast-nodejs-10-performance-tips-linkedin-mobile#client-side 
+[] 6. Add a section showing details of the app(About section)
+[] 7. Read this - https://engineering.linkedin.com/nodejs/blazing-fast-nodejs-10-performance-tips-linkedin-mobile#client-side 
