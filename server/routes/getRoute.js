@@ -119,7 +119,7 @@ router.get("/myans", (req, res) => {
       email: req.session.user.email,
       username: req.session.user.username
     })
-      .then(async user => {
+      .then(user => {
         const userAnswers = user.answers;
         let answerData = new Array();
         let answerStrings = new Array();
@@ -130,7 +130,7 @@ router.get("/myans", (req, res) => {
         forEach won't work properly if it has an async function inside of it
         */
         for (const currentAnswer of userAnswers) {
-          await Question.find({
+          Question.find({
             questionID: currentAnswer.questionID
           }).then(question => {
             answerData.push({
