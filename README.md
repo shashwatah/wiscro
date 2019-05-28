@@ -27,7 +27,7 @@ node server/server.js
 
 ### Deployment
 
-This app will be deployed on heroku when it is completed.
+This app is deployed on Heroku. Link to the app - [Wiscro](https://wiscro.herokuapp.com/)
 
 ### Built With
 
