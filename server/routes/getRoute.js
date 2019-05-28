@@ -31,13 +31,13 @@ router.get("/feedques", (req, res) => {
         User.findOne({
           email: req.session.user.email
         })
-          .then(user => {
+          .then(async user => {
             //A list of all the questions answered by the user
             userQuestionsAnswered = user.answers;
             //Creating a final list of all the questions
             /*This list will contain all the questions that were not created by the user and have not been 
             answered by the user yet*/
-            finalQuestions = allQuestions.filter(current => {
+            finalQuestions = await allQuestions.filter(current => {
               let flag = true;
               //every() method can't be used, check the checklist to see why.
               userQuestionsAnswered.forEach(cur => {
