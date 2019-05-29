@@ -73,8 +73,8 @@ body {
 }
 
 #index-container #index-kssbro-logo {
-  height: 30px;
-  width: 96px;
+  height: 40px;
+  width: 128px;
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 1024px) {
@@ -125,8 +125,8 @@ body {
   }
 
   #index-container #index-kssbro-logo {
-    height: 60px;
-    width: 192px;
+    height: 80px;
+    width: 256px;
     margin-top: 200px;
   }
 }

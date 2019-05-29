@@ -38,7 +38,7 @@ To-Do:
 [✓] 19. Solve Problem 4
     *The problem was on the frontend
 [✓] 20. Remove redundant code and comments
-[X] 21. Add KSSBro to the app 
+[✓] 21. Add KSSBro to the app 
 [X] 22. Change the fav icon
 [✓] 23. Write README
 [] 24. Deploy on Heroku
