@@ -22,7 +22,7 @@ npm install
 Then run the app
 
 ```bash
-node server/server.js
+npm start
 ```
 
 ### Deployment
