@@ -39,10 +39,10 @@ To-Do:
     *The problem was on the frontend
 [✓] 20. Remove redundant code and comments
 [✓] 21. Add KSSBro to the app 
-[X] 22. Change the fav icon
-[✓] 23. Write README
-[] 24. Deploy on Heroku
-[] 25. Make admin page
+[✓] 22. Add a section showing details of the app(About section)
+[X] 23. Change the fav icon
+[✓] 24. Write README
+[✓] 25. Deploy on Heroku
 
 Problems: 
 [✓] 1. Check if when an answer is submited and perYes and perNo are calculated the new ans is acknowledged or not
@@ -67,5 +67,5 @@ Improvements:
 [] 3. Add OAuth
 [] 4. Can add trialPage back later on
 [] 5. Unlimited scrolling for answer page
-[] 6. Add a section showing details of the app(About section)
+[] 6. Make admin page
 [] 7. Read this - https://engineering.linkedin.com/nodejs/blazing-fast-nodejs-10-performance-tips-linkedin-mobile#client-side 

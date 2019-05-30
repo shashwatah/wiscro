@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css?family=Varela+Round");
+
+body {
+  margin: 0px;
+  padding: 0px;
+  /* text-align: center; */
+  background: #111111;
+  font-family: "Varela Round", sans-serif;
+}
+
+#about-back-btn {
+  height: 30px;
+  width: 30px;
+  position: fixed;
+  top: 22.5px;
+  left: 50px;
+}
+
+#about-container {
+  position: relative;
+  top: 100px;
+  height: 500px;
+  width: 600px;
+  margin: auto;
+  text-align: center;
+}
+
+#about-container .logo {
+  padding: 30px;
+  margin: auto;
+  cursor: pointer;
+  width: 224px;
+  height: 70px;
+}
+
+#about-container #about-kssbro-logo {
+  border-right: 1px solid grey;
+}
+
+#about-container #about-text {
+  float: none;
+  margin-top: 50px;
+  color: white;
+  font-size: 18px;
+}
+
+#about-container #about-copyr {
+  color: #1190cb;
+  font-weight: bold;
+  margin-top: 150px;
+  font-size: 12px;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 1024px) {
+  #about-back-btn {
+    height: 60px;
+    width: 60px;
+    top: 52px;
+    left: 80px;
+  }
+
+  #about-container {
+    top: 300px;
+    height: 1000px;
+    width: 1000px;
+  }
+
+  #about-container .logo {
+    padding: 60px;
+    width: 368px;
+    height: 115px;
+  }
+
+  #about-container #about-text {
+    margin-top: 100px;
+    font-size: 38px;
+    padding: 50px;
+  }
+
+  #about-container #about-copyr {
+    color: #1190cb;
+    font-weight: bold;
+    margin-top: 300px;
+    font-size: 25px;
+  }
+}

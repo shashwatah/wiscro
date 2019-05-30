@@ -46,6 +46,10 @@ router.get("/user", (req, res) => {
   }
 });
 
+router.get("/about", (req, res) => {
+  res.render("about.hbs");
+});
+
 //Exporting router variable
 module.exports = {
   router
