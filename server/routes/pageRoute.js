@@ -48,7 +48,7 @@ router.get("/user", (req, res) => {
 
 //About page endpoint
 router.get("/about", (req, res) => {
-  res.render("about.hbs");
+  res.render("aboutPage.hbs");
 });
 
 //Exporting router variable
