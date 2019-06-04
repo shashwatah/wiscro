@@ -1,4 +1,4 @@
-<img alt="Wiscro" src="https://raw.githubusercontent.com/KSSBro/wiscro/master/public/images/wiscro_main.png" height="100">
+<img alt="Wiscro" src="https://raw.githubusercontent.com/KSSBro/wiscro/master/public/images/wiscro.png" height="100">
 
 # Wiscro
 
@@ -18,7 +18,7 @@ Use [Node.js](https://nodejs.org/en/download/) and the package manager [npm](htt
 After installing git, clone the repository on your machine
 
 ```
-git clone https://github.com/KSSBro/unicode.git
+git clone https://github.com/KSSBro/wiscro.git
 ```
 
 After installing MongoDB run the following code in the bin directory in it's installation folder
