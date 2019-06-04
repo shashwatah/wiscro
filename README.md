@@ -9,19 +9,28 @@ Users can ask questions to other users and answer other user's questions by choo
 
 ### Prerequisites
 
-Use [Node.js](https://nodejs.org/en/download/) and the package manager [npm](https://www.npmjs.com/get-npm) that is installed along with it to run Wiscro on your machine
+Use [Node.js](https://nodejs.org/en/download/) and the package manager [npm](https://www.npmjs.com/get-npm) that is installed along with it to run Wiscro on your machine.
+MongoDB is needed to be installed and running before running the app or it will crash.
 
 ### Installing and Running
 
-First install the node-modules in package.json
+After installing MongoDB run the following code in the bin directory in it's installation folder
 
-```bash
+```
+mongod.exe --dbpath ./../mongo-data
+```
+
+> mongo-data is the folder where the data will be saved
+
+Then install the node-modules in package.json
+
+```
 npm install
 ```
 
 Then run the app
 
-```bash
+```
 npm start
 ```
 
