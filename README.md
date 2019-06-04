@@ -34,11 +34,11 @@ Then run the app
 npm start
 ```
 
-### Deployment
+## Deployment
 
 This app is deployed on Heroku. Link to the app - [Wiscro](https://wiscro.herokuapp.com/)
 
-### Built With
+## Built With
 
 - [Node.js](https://nodejs.org/en/)
 - [Express](https://expressjs.com/)
@@ -47,6 +47,10 @@ This app is deployed on Heroku. Link to the app - [Wiscro](https://wiscro.heroku
 - [Handlebars](https://handlebarsjs.com/)
 - [JQuery](https://jquery.com/)
 
-### Authors
+## Authors
 
 - **KSSBro** - [Github](https://github.com/KSSBro)
+
+## License
+
+[ISC](https://choosealicense.com/licenses/isc/)
