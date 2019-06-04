@@ -10,7 +10,7 @@ Users can ask questions to other users and answer other user's questions by choo
 ### Prerequisites
 
 Use [Node.js](https://nodejs.org/en/download/) and the package manager [npm](https://www.npmjs.com/get-npm) that is installed along with it to run Wiscro on your machine.
-MongoDB is needed to be installed and running before running the app or it will crash.
+[MongoDB](https://www.mongodb.com/download-center) is needed to be installed and running before running the app or it will crash.
 
 ### Installing and Running
 
