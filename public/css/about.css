@@ -8,14 +8,6 @@ body {
   font-family: "Varela Round", sans-serif;
 }
 
-#about-back-btn {
-  height: 30px;
-  width: 30px;
-  position: fixed;
-  top: 22.5px;
-  left: 50px;
-}
-
 #about-container {
   position: relative;
   top: 100px;
@@ -52,13 +44,6 @@ body {
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 1024px) {
-  #about-back-btn {
-    height: 60px;
-    width: 60px;
-    top: 52px;
-    left: 80px;
-  }
-
   #about-container {
     top: 300px;
     height: 1000px;
