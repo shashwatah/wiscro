@@ -89,5 +89,5 @@ server.use(function(req, res, next) {
 setInterval(updateQuestionStatus, 60000, Question);
 
 server.listen(port, () => {
-  console.log(`App running on ${port}`);
+  console.log(`App running on port ${port}`);
 });
