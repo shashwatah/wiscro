@@ -47,6 +47,7 @@ Then run the app
 npm start
 ```
 
+Open a browser and type **localhost:*port***
 ## Deployment
 
 This app is deployed on Heroku. Link to the app - [Wiscro](https://wiscro.herokuapp.com/)
