@@ -21,6 +21,12 @@ After installing git, clone the repository on your machine
 git clone https://github.com/KSSBro/wiscro.git
 ```
 
+Then install the node-modules in package.json
+
+```
+npm install
+```
+
 After installing MongoDB run the following code in the bin directory in it's installation folder
 
 ```
@@ -29,10 +35,10 @@ mongod.exe --dbpath ./../mongo-data
 
 > mongo-data is the folder where the data will be saved
 
-Then install the node-modules in package.json
+Set the port you want to run the app on in server/server.js on line 14
 
 ```
-npm install
+const port = *port*;
 ```
 
 Then run the app
