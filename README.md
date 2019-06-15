@@ -67,4 +67,4 @@ This app is deployed on Heroku. Link to the app - [Wiscro](https://wiscro.heroku
 
 ## License
 
-[ISC](https://choosealicense.com/licenses/isc/)
+[MIT](https://choosealicense.com/licenses/mit/)
