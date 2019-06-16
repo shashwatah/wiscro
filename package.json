@@ -1,6 +1,6 @@
 {
   "name": "wiscro",
-  "version": "0.1",
+  "version": "1.0.0",
   "description": "Wiscro is a web-app made with Node.js, Express, MongoDB, Mongoose, Handlebars and JQuery. Users can ask questions to other users and answer other user's questions by choosing one of the two options, anonymously.",
   "main": "index.js",
   "scripts": {
