@@ -1,4 +1,4 @@
-<img alt="Wiscro" src="https://raw.githubusercontent.com/KSSBro/wiscro/master/public/images/wiscro.png" height="100">
+<img alt="Wiscro" src="https://raw.githubusercontent.com/KSSBro/kssbro.github.io/master/public/images/wiscro.png" height="100">
 
 # Wiscro
 
