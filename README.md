@@ -65,3 +65,7 @@ This app is deployed on Heroku. Link to the app - [Wiscro](https://wiscro.heroku
 ## Authors
 
 - **KSSBro** - [Github](https://github.com/KSSBro)
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
