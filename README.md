@@ -2,7 +2,7 @@
 
 # Wiscro
 
-Wiscro is a Q&A web-app based on the "Wisdom of the Crowd" hypothesis made with Node.js, Express, MongoDB, Mongoose, Handlebars and JQuery.
+Wiscro is a Q&A web-app based on the "Wisdom of the Crowd" hypothesis made with Node.js, Express, MongoDB, Mongoose, Handlebars and jQuery.
 Users can ask questions to other users and answer other users' questions by choosing one of the two options, anonymously.
 
 ## Getting Started
