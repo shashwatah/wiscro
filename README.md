@@ -1,4 +1,4 @@
-<img alt="Wiscro" src="https://raw.githubusercontent.com/KSSBro/wiscro/master/public/images/wiscro.png" height="100">
+<img alt="Wiscro" src="https://raw.githubusercontent.com/Araekiel/wiscro/master/public/images/wiscro.png" height="100">
 
 # Wiscro
 
@@ -18,7 +18,7 @@ Use [Node.js](https://nodejs.org/en/download/) and the package manager [npm](htt
 After installing git, clone the repository on your machine
 
 ```
-git clone https://github.com/KSSBro/wiscro.git
+git clone https://github.com/Araekiel/wiscro.git
 ```
 
 Then install the node-modules in package.json
@@ -64,7 +64,7 @@ This app is deployed on Heroku. Link to the app - [Wiscro](https://wiscro.heroku
 
 ## Authors
 
-- **KSSBro** - [Github](https://github.com/KSSBro)
+- **Araekiel** - [Github](https://github.com/Araekiel)
 
 ## License
 
