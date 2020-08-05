@@ -17,19 +17,19 @@ Use [Node.js](https://nodejs.org/en/download/) and the package manager [npm](htt
 
 After installing git, clone the repository on your machine
 
-```
+```bash
 git clone https://github.com/Araekiel/wiscro.git
 ```
 
 Then install the node-modules in package.json
 
-```
+```bash
 npm install
 ```
 
 After installing MongoDB run the following code in the bin directory in it's installation folder
 
-```
+```bash
 mongod.exe --dbpath ./../mongo-data
 ```
 
@@ -37,13 +37,13 @@ mongod.exe --dbpath ./../mongo-data
 
 Set the port you want to run the app on in server/server.js on line 14
 
-```
+```bash
 const port = *port*;
 ```
 
 Then run the app
 
-```
+```bash
 npm start
 ```
 
