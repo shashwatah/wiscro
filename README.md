@@ -70,4 +70,4 @@ This app is deployed on Heroku. Link to the app - [Wiscro](https://wiscro.heroku
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT License](https://github.com/Araekiel/wiscro/blob/master/LICENSE) |Copyright (c) 2020 Kumar Shashwat
