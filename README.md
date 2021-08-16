@@ -5,7 +5,7 @@
 Wiscro is a Q&A web-app based on the "Wisdom of the Crowd" hypothesis made with Node.js, Express, MongoDB, Mongoose, Handlebars and jQuery.
 Users can ask questions to other users and answer other users' questions by choosing one of the two options, anonymously.
 
-> This is a prototype. 
+> This is a prototype. <br/>
 > Quick Update (2021): This project is from 2017-18 and has a bunch of security issues, and on top of that I was still new to Node.js while working on it - hence, I wouldn't recommend using any of the code in this repo. Also, the mLab add-on on Heroku was discontinued last year, which means that the current deployment has no database and cannot be used, so, I'm adding a GIF that showcases how wiscro is supposed to work (for those who don't want to clone the repo).
 
 <img alt="Gif" src="https://raw.githubusercontent.com/Araekiel/wiscro/master/assets/wiscro.gif">
